@@ -78,7 +78,7 @@ technical resources:
 
 
 
-**Jason Lu: **
+**Jason Lu:**
 artistic/design/aesthetic resources: 
 1. https://overlyapp.com/blog/augmented-reality-art-opportunities-and-examples-for-artists-and-creatives/        
 2. https://medium.com/predict/augmented-reality-transforms-artworks-into-experiences-1b72440a7094        
@@ -103,7 +103,9 @@ artistic/design/aesthetic resources:
 3. https://www.youtube.com/watch?v=3xq4DWCJUks&t=27s
 4. https://www.youtube.com/watch?v=YJg02ivYzSs&t=2s
 5. https://www.youtube.com/watch?v=Drwkvk8j-tc&t=4s
+
  technical resources:
+ 
 1. https://www.codeproject.com/Tags/Augmented-Reality
 2. https://github.com/mafda/augmented_reality_101
 3. https://blog.csdn.net/weixin_44192622/article/details/89077324?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERatepc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_default&utm_relevant_index=6
