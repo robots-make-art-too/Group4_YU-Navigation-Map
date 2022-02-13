@@ -8,6 +8,7 @@ Resource:
    * things you hate, things you love etc.
 * each student will be responsible for 5 x technical resources and 5 x artistic/design/aesthetic resources
 * add the links to your local copy of the file
+
 Zihan Cao:
 artistic/design/aesthetic resources:
 1.https://www.youtube.com/watch?v=LdnbvT1yIIM
@@ -105,6 +106,6 @@ artistic/design/aesthetic resources:
  technical resources:
 1. https://www.codeproject.com/Tags/Augmented-Reality
 2. https://github.com/mafda/augmented_reality_101
-3. https://blog.csdn.net/weixin_44192622/article/details/89077324?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_default&utm_relevant_index=6
+3. https://blog.csdn.net/weixin_44192622/article/details/89077324?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERatepc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3.pc_relevant_default&utm_relevant_index=6
 4. https://github.com/jayantjain100/Augmented-Reality
 5. https://github.com/yassersouri/simple-augmented-reality
