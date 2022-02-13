@@ -84,9 +84,10 @@ artistic/design/aesthetic resources:
 3. https://www.bilibili.com/video/BV1nb4y1R7Zh/?spm_id_from=333.788.recommend_more_video.-1        
 4. https://www.inap.com/blog/7-incredible-examples-of-augmented-reality-technology/
 5. https://econsultancy.com/14-examples-augmented-reality-brand-marketing-experiences/
-technical resources:
-1. Augmented Reality using OpenCV Python | Masking and Augmentation p.3 (2020)
-2. FACE RECOGNITION  + ATTENDANCE PROJECT | OpenCV Python | Computer Vision
+
+  technical resources:
+1. https://www.youtube.com/watch?v=Gz0vJRaz2l4&ab_channel=Murtaza%27sWorkshop-RoboticsandAI
+2. https://www.youtube.com/watch?v=sz25xxF_AVE&ab_channel=Murtaza%27sWorkshop-RoboticsandAI
 3. https://mphy0026.readthedocs.io/en/latest/summerschool/bard.html        
 4. https://www.varonis.com/blog/git-branching#:~:text=To%20merge%20branches%20locally%2C%20use,branch%20into%20the%20main%20branch.        
 5. https://www.bilibili.com/video/BV1H64y1y7X1/?spm_id_from=333.788.recommend_more_video.0 
