@@ -11,21 +11,21 @@ Resource:
 
 Zihan Cao:
 artistic/design/aesthetic resources:
-1.https://www.youtube.com/watch?v=LdnbvT1yIIM
-2..https://industrial.viewar.com/?gclid=Cj0KCQiA0p2QBhDvARIsAACSOONMLrdQJB6Em2FTxEsQshidK6D-Wq2oX2DMHJ3rBdSUH8ai-kaIlb0aAtZVEALw_wcB
-3.https://www.youtube.com/watch?v=AidepRnwbNc
-4.https://www.youtube.com/watch?v=jPqN78-sbWo
-5.https://www.youtube.com/watch?v=gqOYPMjWkes
+1. https://www.youtube.com/watch?v=LdnbvT1yIIM
+2. https://industrial.viewar.com/?gclid=Cj0KCQiA0p2QBhDvARIsAACSOONMLrdQJB6Em2FTxEsQshidK6D-Wq2oX2DMHJ3rBdSUH8ai-kaIlb0aAtZVEALw_wcB
+3. https://www.youtube.com/watch?v=AidepRnwbNc
+4. https://www.youtube.com/watch?v=jPqN78-sbWo
+5. https://www.youtube.com/watch?v=gqOYPMjWkes
 
 
 
 
  technical resources:
-1.https://youtu.be/x8Me2IQUyjg
-2.https://github.com/antonyraphel/ARCarMovement
-3.https://github.com/nesseratious/AR-Navigation
-4.https://github.com/sofwerx/AR_Navigation
-5.https://github.com/chel-seyy/Android-App-AR-Map-Navigation
+1. https://youtu.be/x8Me2IQUyjg
+2. https://github.com/antonyraphel/ARCarMovement
+3. https://github.com/nesseratious/AR-Navigation
+4. https://github.com/sofwerx/AR_Navigation
+5. https://github.com/chel-seyy/Android-App-AR-Map-Navigation
 
 
 
@@ -40,17 +40,17 @@ Yuqing Guo:
 Artistic/design/aesthetic resources:
 1. https://themindstudios.com/blog/5-best-augmented-reality-sdks-and-frameworks/
 2. https://experiments.withgoogle.com/collection/ar
-3.https://www.wired.com/story/john-hanke-niantic-augmented-reality-real-metaverse/
-4.https://www.bilibili.com/video/BV1DV411k7Bz?from=search&seid=2932976992384029195&spm_id_from=333.337.0.0
-5.https://vrscout.com/news/3d-scanner-app-ar-apple-quick-look/
+3. https://www.wired.com/story/john-hanke-niantic-augmented-reality-real-metaverse/
+4. https://www.bilibili.com/video/BV1DV411k7Bz?from=search&seid=2932976992384029195&spm_id_from=333.337.0.0
+5. https://vrscout.com/news/3d-scanner-app-ar-apple-quick-look/
 
 
 Technical resources:
 1. https://github.com/GeekLiB/AR-BXT-AR4Python
-2.https://www.jb51.net/article/174621.htm
-3.https://www.youtube.com/watch?v=NIXJJoqM8BQ
-4.https://www.youtube.com/watch?v=Nc1dPd6gIRU
-5.https://github.com/cyrildiagne/ar-cutpaste
+2. https://www.jb51.net/article/174621.htm
+3. https://www.youtube.com/watch?v=NIXJJoqM8BQ
+4. https://www.youtube.com/watch?v=Nc1dPd6gIRU
+5. https://github.com/cyrildiagne/ar-cutpaste
 
 
 
