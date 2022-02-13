@@ -61,17 +61,17 @@ Technical resources:
 
 
 Artistic/design/aesthetic resources:
-1.https://www.roadtovr.com
-2.https://www.quanjing.com
-3.https://www.iberdrola.com/innovation/virtual-reality
-4.https://www.youtube.com/watch?v=0p8HZVCZSkc
-5.Unity Virtual Reality Projects Explore the world of Virtual Reality by building immersive and fun VR projects using Unity 3D by Jonathan Linowes
+1. https://www.roadtovr.com
+2. https://www.quanjing.com
+3. https://www.iberdrola.com/innovation/virtual-reality
+4. https://www.youtube.com/watch?v=0p8HZVCZSkc
+5. Unity Virtual Reality Projects Explore the world of Virtual Reality by building immersive and fun VR projects using Unity 3D by Jonathan Linowes
 
 
 technical resources:
-1.https://www.vrfavs.com
-2.https://threejs.org/
-3.https://www.youtube.com/watch?v=QvUkcw63bAs
+1. https://www.vrfavs.com
+2. https://threejs.org/
+3. https://www.youtube.com/watch?v=QvUkcw63bAs
 
 
 
