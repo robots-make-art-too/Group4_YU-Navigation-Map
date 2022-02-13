@@ -9,7 +9,7 @@ Resource:
 * each student will be responsible for 5 x technical resources and 5 x artistic/design/aesthetic resources
 * add the links to your local copy of the file
 
-Zihan Cao:
+**Zihan Cao:**
 artistic/design/aesthetic resources:
 1. https://www.youtube.com/watch?v=LdnbvT1yIIM
 2. https://industrial.viewar.com/?gclid=Cj0KCQiA0p2QBhDvARIsAACSOONMLrdQJB6Em2FTxEsQshidK6D-Wq2oX2DMHJ3rBdSUH8ai-kaIlb0aAtZVEALw_wcB
@@ -36,7 +36,7 @@ artistic/design/aesthetic resources:
 
 
 
-Yuqing Guo:
+**Yuqing Guo:**
 Artistic/design/aesthetic resources:
 1. https://themindstudios.com/blog/5-best-augmented-reality-sdks-and-frameworks/
 2. https://experiments.withgoogle.com/collection/ar
@@ -57,7 +57,7 @@ Technical resources:
 
 
 
-Jingheng Xu:
+**Jingheng Xu:**
 
 
 Artistic/design/aesthetic resources:
@@ -78,7 +78,7 @@ technical resources:
 
 
 
-Jason Lu: 
+**Jason Lu: **
 artistic/design/aesthetic resources: 
 1. https://overlyapp.com/blog/augmented-reality-art-opportunities-and-examples-for-artists-and-creatives/        
 2. https://medium.com/predict/augmented-reality-transforms-artworks-into-experiences-1b72440a7094        
@@ -96,7 +96,7 @@ artistic/design/aesthetic resources:
 
 
 
-Yidan Zhang:
+**Yidan Zhang:**
 artistic/design/aesthetic resources:
 1. https://basa-studio.com/stories/7-AR-artists-who-are-raising-the-bar
 2. https://www.youtube.com/watch?v=hDjCTg41jfU&t=1s
