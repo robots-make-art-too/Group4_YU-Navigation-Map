@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="../assets/css/style.css">
+			<title>YU Navigation Map</title>
+	</head>
+	<center>
+		<body>
+			<h2>York Univercity Navigation Map</h2></center>
+			<h3 id="into">Brief description of our project</h3>
+               <p>The project is to build an AR map on the part of York campus and access the website via our QR code. </p>
+                <p>The AR link in the website can guide students to get the route and building through GPS.</p>
+<!--<object data="pattern-pattern.patt"--> 
+			    <img src= "patternPhoto.png"     
+				width="400px" height="400px" ></object>
+            <h3>Here to open the camra</h3>
+               <button id="ar" type="button" onclick="openTab('AR_GroupProject4.html')">Start AR</button>
+	
+        <h4 align="right">Creators:</h4>
+        <p align="right">Zihan Cao</p>
+        <p align="right">Yidan Zhang</p>
+        <p align="right">Jason Lu</p>
+        <p align="right">Jingheng Xu</p>
+        <p align="right">Yuqing Guo</p>
+
+            <script>
+				function openTab(url) {
+					const link = document.createElement('a');
+					link.href = url;
+					link.target = '_blank';
+					document.body.appendChild(link);
+					link.click();
+					link.remove();
+				}
+			</script>
+		</body>
+	
+</html>
