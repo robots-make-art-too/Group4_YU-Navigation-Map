@@ -21,9 +21,9 @@ h2 {
 	width: 100%;
 	height: 500px;
 	font-size: 80px;
-	background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6a/Toronto-_York_University_aerial_%2810056435426%29.jpg);
+	background-image: url(../../assets/backgrounds/background3.jpeg);
 	background-size: 100%;
-	background-position: 50% 25%;
+	background-position: right 25% top 25%;
 }
 
 .imgLeft {
@@ -55,8 +55,8 @@ p {
 }
 
 model-viewer {
-	background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/23/Vari_Hall.jpg);
-	background-position: 50% 100%;
+	background-image: url(../../assets/backgrounds/background4.jpeg);
+	background-position: right 50% top 50%;
 	background-size: 100%;
 	width: 100%;
 	height: 600px;
