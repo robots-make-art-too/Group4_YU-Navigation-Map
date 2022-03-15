@@ -1,4 +1,4 @@
-[site](website/pages/GroupProject4.html)
+[site](website/pages/GroupProject4.html) - added this: you will have to delete what is below and give different content -- this page loads as the index for the AR but without the link I added ^ it doesn't follow through from the gh-pages deployment. QR code works
 
 ## Welcome to GitHub Pages
 
