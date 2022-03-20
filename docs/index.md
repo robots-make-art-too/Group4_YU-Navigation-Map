@@ -2,16 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-            <meta content="width=device-width, initial-scale=1.0" name="viewport">
-                <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
-                <link href="website/assets/css/GroupProject4.css" rel="stylesheet" title="style" type="text/css">
-                <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module">
-                </script>
-                <title>
-                    YU Navigation Map
-                </title>
-            </meta>
-        </meta>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+        <link href="website/assets/css/GroupProject4.css" rel="stylesheet" title="style" type="text/css">
+        <script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+        <title>
+            YU Navigation Map
+        </title>
     </head>
     <center>
         <body>
@@ -36,7 +33,7 @@
         <h4>
             Click the button to open the AR web application
         </h4>
-        <button id="ar" onclick="openTab('AR_GroupProject4.html')" type="button">
+        <button id="ar" onclick="openTab('website/pages/AR_GroupProject4.html')" type="button">
             <!-- Start AR -->
         </button>
         <hr>
@@ -80,5 +77,3 @@
         </a-marker>
     </body>
 </html>
-
-        
