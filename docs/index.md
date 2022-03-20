@@ -60,7 +60,7 @@
             <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="Yuqing Guo" height="100px" width="100px" style="float: left; margin-left: 100px;">
             Yuqing Guo
         </p>
-        <img class="imgRight" height="300px" src="website/assets/qrCode/pattern-logo.png" width="300px"/>
+        <img class="imgRight" height="300px" src="website/assets/qrCode/pattern-YU_pattern.png" width="300px"/>
         <script>
         function openTab(url) {
                 const link = document.createElement('a');
