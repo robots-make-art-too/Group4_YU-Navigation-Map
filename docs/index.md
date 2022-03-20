@@ -36,7 +36,7 @@
         <h4>
             Click the button to open the AR web application
         </h4>
-        <button id="ar" onclick="openTab('website/assets/pages/AR_GroupProject4.html')" type="button">
+        <button id="ar" onclick="openTab('AR_GroupProject4.html')" type="button">
             <!-- Start AR -->
         </button>
         <hr>
