@@ -8,6 +8,6 @@ Code example:
 
 
 1. Lassonde Building (front door) Lat: 43.773598, Long:-79.505281
-2. ![lb](https://github.com/AdeleYidanZhang/Yidan_heroku/blob/de3371d74bae0fa853a51f1c858a94c99c449aa5/img/site1.PNG)
+2. ![lb](https://github.com/robots-make-art-too/Group4_YU-Navigation-Map/blob/6f89faccc0ecb9cf3ddd31a1fe5d476c1b6749e3/imgs/l_b.PNG)
 3. Vari Hall (front door)Lat: 43.773071, Long:-79.503404
 4. Ross building (the door connect with Vari Hall) Lat: 43.772944, Long: -79.503948
