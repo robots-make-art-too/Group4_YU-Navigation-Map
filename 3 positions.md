@@ -12,4 +12,4 @@ Code example:
 3. Vari Hall (front door)Lat: 43.773071, Long:-79.503404
 4. ![vh](https://github.com/robots-make-art-too/Group4_YU-Navigation-Map/blob/b4a067dcf30540bb2960aabad4e8a671a81df79e/imgs/v_h.PNG)
 5. Ross building (the door connect with Vari Hall) Lat: 43.772944, Long: -79.503948
-6. ![rb]()
+6. ![rb](https://github.com/robots-make-art-too/Group4_YU-Navigation-Map/blob/f884341785e76011b389765600309515e1374565/imgs/r_b.PNG)
