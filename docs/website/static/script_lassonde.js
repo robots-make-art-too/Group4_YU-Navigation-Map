@@ -39,7 +39,7 @@ function renderPlaces(places) {
     });
 }
 
-function info() {
+function infoLassonde() {
     //<a-text value="Sample Test of Text."  scale="40 40 40" gps-entity-place="latitude: 51.0493; longitude: -0.7238;"></a-text>
     //var p = document.getElementById('mydata');
     //p.innerHTML = '<p>Lassonde Building LSA (formerly Computer Science & Engineering Building<br>120 Campus Walk<br>Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr</p>';
