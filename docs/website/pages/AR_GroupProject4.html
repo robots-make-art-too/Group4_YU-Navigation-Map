@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- <meta charset='utf-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	
-		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+		<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+		<script type="text/javascript" src="ar-threex.js"></script>
+
+		<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+		<script src="https://cdn.statically.io/gh/donmccurdy/aframe-extras/fe293f78/dist/aframe-extras.loaders.js"></script>
+		
 		<script src="./static/script_lassonde.js"></script>
 		<script src="./static/script_vari.js"></script>
 	</head>
@@ -20,18 +27,18 @@
 		vr-mode-ui="enabled: false"
 		id="scene"> 
 		
-		<a-sky src= "https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp"></a-sky>  
+			<a-sky src= "https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp"></a-sky>  
 
-		<a-assets>
-			<a-asset-item id="LassondeBuilding" src="https://raw.githubusercontent.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/LassondeBuilding.gltf"></a-asset-item>
-			<a-asset-item id="VariHall" src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf">
-		</a-assets>
-		<a-gltf-model src="#LassondeBuilding" rotaton ="0 0 0"></a-gltf-model> 
-		<a-entity position="0 0 0">
-		<a-gltf-model src="#VariHall" rotaton ="0 0 0"></a-gltf-model> 
-		<a-entity position="0 0 0">
-			<a-camera></a-camera>	
-		</a-entity>
+			<a-assets>
+				<a-asset-item id="LassondeBuilding" src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/LassondeBuilding.gltf"></a-asset-item>
+				<a-asset-item id="VariHall" src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf"></a-asset-item>
+			</a-assets>
+
+			<a-entity id="lassonde-model" gltf-model="#LassondeBuilding" rotaton ="0 0 0" position="0 0 0"></a-entity> 
+			<a-entity id="vari-model" gltf-model="#VariHall" rotaton ="0 0 0" position="0 0 0"></a-entity> 
+			
+			<a-camera gps-camera rotation-reader></a-camera>	
+					
 	<!--	(here is the code with pattern)
 		    <a-marker type="pattern" url="https://raw.githubusercontent.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/pattern-YU_pattern.patt">
 			    <a-entity id="entity-lassonde" positon="0.5 0.5 0" rotation="0 0 0" scale="0.005 0.005 0.005" gltf-model="#LassondeBuilding"></a-entity>
@@ -49,6 +56,7 @@
 			<a-entity camera></a-entity>-->
 
 		</a-scene>
+			
 		<button id="info" onclick="infoLassonde();" type="button">Show Info</button>
 
 	</body>
