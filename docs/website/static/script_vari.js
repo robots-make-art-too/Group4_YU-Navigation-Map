@@ -21,8 +21,10 @@ function staticLoadPlaces() {
        {
             name: 'VariHall', 
             location: { 
-                lat: 43.773071,
-                lng: -79.503404,
+                //lat: 43.773071,
+                //lng: -79.503404,
+                lat: 43,
+                lng: -79,
             }
        }
    ];
