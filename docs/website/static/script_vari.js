@@ -70,28 +70,43 @@ function infoLassonde() {
     //back left: 43.77300390256152, -79.50332581256298
 }
 */
-function switchInfo(message) {
-    let info = document.createElement('a-text');
-    info.setAttribute('value', message);
-    info.setAttribute('scale', '0, 0, 0');
+
+//creates the text that will be displayed
+let info = document.createElement('a-text');
+function switchInfo() {
+    info.setAttribute('value', 'Name: Lassonde Building LSA (formerly Computer Science & Engineering Building');
+    info.setAttribute('scale', '0.05, 0.05, 0.05');
     info.setAttribute('gps-entity-place', 'latitude: 43.773598; longitude: -79.505281;')
+
+    info.addEventListener('loaded', () => {
+        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+    });
+
+    scene.appendChild(info);
 }
 
+//creates a global var to keep track of which message is displayed
 number = 0;
+
+//register a component that allows clicks to be used
 AFRAME.registerComponent('accepts-clicks', {
     init: function() {
+        //this event handeler for when releasing finger
       this.el.addEventListener('touchend', handleClickEvent);
+        //event handeler when tapping
       this.el.addEventListener('click', handleClickEvent);
-    },
+    },//I assume tick is being updated constantly
     tick: function() {
+        //check if number is 3 the resets to 0
         if (number == 3) {
             number = 0;
         }
-        cycleMessages(number);
+        //sets the value to the new/current message
+        info.setAttribute('value', cycleMessages(number));
     }
   });
 
-
+  //tells which message is supposed to display
   function cycleMessages(number) {
     if (number == 0) {
         return "Name: Lassonde Building LSA (formerly Computer Science & Engineering Building"
@@ -102,10 +117,13 @@ AFRAME.registerComponent('accepts-clicks', {
     }
   }
 
+//assuming what happens during a click
 function handleClickEvent() {
+        //add one (don't know if this is for every tap and release, which would add 2 but I need to test)
         number = number + 1;
 }
 
+//I don't think this applies to current application
 tools.forEach(function(tool){
     var toolMarker = document.querySelector("#" + tool.name + "-marker");
     if (toolMarker && toolMarker.object3D.visible) {
