@@ -24,7 +24,7 @@ function renderPlaces(places) {
 
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('lassonde-model', './assets/models/VariHall.gltf');
+        model.setAttribute('lassonde-model', 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf');
         model.setAttribute('rotation', '0 180 0');
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.5 0.5 0.5');
@@ -36,6 +36,8 @@ function renderPlaces(places) {
         scene.appendChild(model);
     });
 }
+
+/*
 function infoLassonde() {
     var cameraModel = document.getElementById('camera').object3D.getWorldPosition();
     var cameraLocation = cameraModel.querySelector('gps-entity-place');
@@ -51,6 +53,7 @@ function infoLassonde() {
         info.setAttribute('scale', '20, 20, 20');
     }
 }
+*/
 
 function switchInfo() {
     document.createElement('a-text');
