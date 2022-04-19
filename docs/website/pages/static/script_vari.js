@@ -126,10 +126,10 @@ function handleClickEvent() {
 }
 
 //I don't think this applies to current application
-tools.forEach(function(tool){
-    var toolMarker = document.querySelector("#" + tool.name + "-marker");
-    if (toolMarker && toolMarker.object3D.visible) {
-      toggleConvoBubble(tool.dialogue);
-      if (!gamerState.hasCharacterTool(tool)) gamerState.addTool(tool);
-    }
-  });
+// tools.forEach(function(tool){
+//     var toolMarker = document.querySelector("#" + tool.name + "-marker");
+//     if (toolMarker && toolMarker.object3D.visible) {
+//       toggleConvoBubble(tool.dialogue);
+//       if (!gamerState.hasCharacterTool(tool)) gamerState.addTool(tool);
+//     }
+//   });
