@@ -23,6 +23,8 @@ h2 {
 	font-size: 20px;
 	background-image: url(../../assets/backgrounds/background3.jpeg);
 	background-size: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
 	background-position: right 25% top 25%;
 }
 
@@ -68,7 +70,7 @@ model-viewer {
 button {
 	background-image: url(https://www.hackingwithswift.com/uploads/arkit.jpg);
 	background-size: 100%;
-	width: 1500px;
+	width: 150px;
 	height: 100px;
 	margin-bottom: 50px;
 	margin-top: 5px
