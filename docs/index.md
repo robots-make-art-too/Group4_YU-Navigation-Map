@@ -24,7 +24,7 @@
         Brief description of our project
     </h3>
     <p>
-        The goal of our project is to create an easy to use tool for new students and people unfamiliar with the campus. Using GPS markers near building signs, we will have unique 3D of models of buildings appear in AR along bits of helpful information such as room numbers. In addition to this, we also plan to create a useful AR GPS system that will allow the user to follow a virtual "path" from one location the another. To use our project, just click the buttom at the bottom of the page. Also, if you find this application useful, share it with others using our custom QR code to the left!
+        The goal of our project is to create an easy to use tool for new students and people unfamiliar with the campus. Using geolocation, we will have unique 3D of models of buildings appear in AR along bits of helpful information such as the building name and its operational hours. Cycling though the diffent kinds of information is easy, just tap the screen. To access our project, just click the buttom at the bottom of the page. Also, if you find this application useful, share it with others using our custom QR code above!
     </p>
     <!-- <p>The AR link in the website can guide students to get the route and building through GPS.</p> -->
     <body>
