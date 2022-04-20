@@ -49,7 +49,7 @@ function renderPlaces(places) {
             var entity = document.querySelector('[gps-entity-place]');
             infoIdx++;
             var newIdx = infoIdx % 3
-            entity.setAttribute('info', '${info[newIdx]')
+            entity.setAttribute('info', '${info[newIdx]}')
         });
 
         scene.appendChild(model);//add the model onto/into the scene
