@@ -27,7 +27,7 @@ h2 {
 	background-repeat: no-repeat;
 	background-position: right 25% top 25%;
 }
-
+/*
 .imgLeft {
 	float: left;
 	display: block;
@@ -43,7 +43,7 @@ h2 {
 	margin-right: 0px;
 	width: auto;
 }
-
+*/
 h3 {
 	font-size: 25px;
 	margin-right: 100px;
@@ -54,7 +54,7 @@ h3 {
 p {
 	font-size: 20px;
 	margin-right: 100px;
-	text-align: right;
+	text-align: left;
 }
 
 model-viewer {
