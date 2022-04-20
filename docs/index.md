@@ -19,7 +19,7 @@
             </h2>
         </body>
     </center>
-    <img class="imgLeft" height="600px" src="website/assets/qrCode/YU-N.Mqr-code.png" width="600px"/>
+    <img class="imgLeft" height="368px" src="website/assets/qrCode/YU-N.Mqr-code.png" width="368px"/>
     <h3 id="into">
         Brief description of our project
     </h3>
