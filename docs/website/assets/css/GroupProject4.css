@@ -27,15 +27,12 @@ h2 {
 	background-repeat: no-repeat;
 	background-position: right 25% top 25%;
 }
-/*
+
 .imgLeft {
-	float: left;
-	display: block;
-	margin-left: 100px;
-	margin-right: 10px;
+	height: auto;
 	width: auto;
 }
-
+/*
 .imgRight {
 	float: right;
 	display: block;
