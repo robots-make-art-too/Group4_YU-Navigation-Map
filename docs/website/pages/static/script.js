@@ -1,17 +1,17 @@
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'click for more info';
+    button.innerText = '?';
     
     var currentLat = 43.773598; //0.00
     var currentLng = -79.505281; //0.00
 
     if(navigator.geolocation) {
-        return navigator.geolocation.getCurrentPosition(function(position) {
-            loadPlaces(position.coords)
-                .then((places) => {
-                    renderPlaces(places)
-                })
-        },
+        navigator.geolocation.getCurrentPosition(
+            position=> {
+                currentLng = position.coords.longitude;
+                currentLat = position.coords.latitude;
+                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+            },
             (err) => console.error('Error in retreiving position', err),
             {
                 enableHighAccuracy: true,
@@ -22,51 +22,43 @@ window.onload = () => {
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
+
+    let places = loadPlaces();
+    renderPlaces(places);
+    console.log('Hello');
+
 };
 
 
-function loadPlaces(position) {
-    currentLng = position.coords.longitude;
-    currentLat = position.coords.latitude;
-    console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-
-    let params = {
-        radius: 10, //meters
-    }
-    currentLat = 0.00
-    if (currentLat === 0.00) {
-        return [ 
-            {
+function loadPlaces() {
+    return [ 
+        {
             name: 'Lassonde Building',
             location: { 
                 lat: 43.773598,
                 lng: -79.505281,
-                },
+            },
             url: '../../assets/models/LassondeBuilding.gltf',
             info: {
                 short: 'LSB',
                 loc: 'here LSB',
                 hour: 'time LSB',
-                },
-            }
-       ]
-    } else {
-        return [
-            {
+            },
+        },
+        {
             name: 'Vari Hall',
             location: {
                lat: 43.773071,
                lng: -79.503404,
-                },
+            },
             url: '../../assets/models/VariHall.gltf',
             info: {
                 short: 'VH',
                 loc: 'here VH',
                 hour: 'time VH',
-                },
-            }
-        ]
-    }      
+            },
+        }
+    ]
 };
 
 var infoIdx = 0;
@@ -95,8 +87,8 @@ function renderPlaces(places) {
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             const div = document.querySelector('.instructions');
-            var newIdx = infoIdx % length(place.info);
-            div.innerText = place.info[newIdx];
+            var newIdx = infoIdx % length(place.info)
+            div.innerText = place.info[newIdx]
             infoIdx++;
         });
 
