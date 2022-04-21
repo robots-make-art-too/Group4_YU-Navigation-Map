@@ -5,17 +5,13 @@ window.onload = () => {
     var currentLat = 43.773598; //0.00
     var currentLng = -79.505281; //0.00
 
-    // let places = loadPlaces();
-    // renderPlaces(places);
-    // console.log('Hello');
-
     if(navigator.geolocation) {
-        return navigator.geolocation.getCurrentPosition(function(position) {
-            loadPlaces(position.coords)
-                .then((places) => {
-                    renderPlaces(places)
-                })
-        },
+        navigator.geolocation.getCurrentPosition(
+            position=> {
+                currentLng = position.coords.longitude;
+                currentLat = position.coords.latitude;
+                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+            },
             (err) => console.error('Error in retreiving position', err),
             {
                 enableHighAccuracy: true,
@@ -26,20 +22,16 @@ window.onload = () => {
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
+
+    let places = loadPlaces();
+    renderPlaces(places);
+    console.log('Hello');
+
 };
 
 
-function loadPlaces(position) {
-    currentLng = position.longitude;
-    currentLat = position.latitude;
-    console.log(`Lat ${position.latitude} Lon ${position.longitude}`);
-
-    let params = {
-        radius: 10, //meters
-    }
-    currentLat = 0.00
-    if (currentLat === 0.00) {
-        return [ 
+function loadPlaces() {
+    return [ 
             {
             name: 'Lassonde Building',
             location: { 
@@ -53,9 +45,6 @@ function loadPlaces(position) {
                 hour: 'time LSB',
                 },
             }
-       ]
-    } else {
-        return [
             {
             name: 'Vari Hall',
             location: {
@@ -69,8 +58,7 @@ function loadPlaces(position) {
                 hour: 'time VH',
                 },
             }
-        ]
-    }      
+    ] 
 };
 
 var infoIdx = 0;
