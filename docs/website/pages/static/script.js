@@ -89,7 +89,7 @@ function renderPlaces(places) {
         model.setAttribute('name', place.name);
 
         model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded' {detail: {component: this.el }}))
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         });
 
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
