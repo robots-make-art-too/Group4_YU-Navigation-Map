@@ -23,11 +23,15 @@ function initiateModels() {
     var modelsArray = [
       {
         name: 'vari',
-        dialogue: 'Hi there, I\'m Bowser! I\'ve lost my skull. Let me know if you see it!',
+        dialogue1: 'text1',
+        dialogue2: 'text2',
+        dialogue3: 'text3'
       },
       {
         name: 'lassonde',
-        dialogue: 'sqauak squaaak SQUAKKKKK',
+        dialogue1: 'text1',
+        dialogue2: 'text2',
+        dialogue3: 'text3'
       }
     ];
 
