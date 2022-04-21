@@ -1,27 +1,29 @@
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = 'click for more info';
+    button.innerText = '?';
     
     var currentLat = 43.773598; //0.00
     var currentLng = -79.505281; //0.00
 
     if(navigator.geolocation) {
-        return navigator.geolocation.getCurrentPosition(function(position) {
-            loadPlaces(position.coords)
-                .then((places) => {
-                    renderPlaces(places)
-                })
-        },
-            (err) => console.error('Error in retreiving position', err),
-            {
-                enableHighAccuracy: true,
-                maximumAge: 0,
-                timeout: 27000,
+        navigator.geolocation.getCurrentPosition(
+            position=> {
+                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`); // show on the console
+                currentLng = position.coords.longitude;
+                currentLat = position.coords.latitude;
+            },
+            err=> {
+                alert(`An error occurred: ${err.code}`);
             }
-        ); 
+        );
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
+
+    let places = loadPlaces();
+    renderPlaces(places);
+    console.log('Hello');
+    
 };
 
 
