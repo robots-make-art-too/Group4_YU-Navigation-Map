@@ -32,33 +32,33 @@ window.onload = () => {
 
 function loadPlaces() {
     return [ 
-            {
+        {
             name: 'Lassonde Building',
             location: { 
                 lat: 43.773598,
                 lng: -79.505281,
-                },
+            },
             url: '../../assets/models/LassondeBuilding.gltf',
             info: {
                 short: 'LSB',
                 loc: 'here LSB',
                 hour: 'time LSB',
-                },
-            }
-            {
+            },
+        },
+        {
             name: 'Vari Hall',
             location: {
                lat: 43.773071,
                lng: -79.503404,
-                },
+            },
             url: '../../assets/models/VariHall.gltf',
             info: {
                 short: 'VH',
                 loc: 'here VH',
                 hour: 'time VH',
-                },
-            }
-    ] 
+            },
+        }
+    ]
 };
 
 var infoIdx = 0;
