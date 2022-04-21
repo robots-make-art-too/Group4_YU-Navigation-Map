@@ -1,10 +1,38 @@
+let startLat = 0.00;
+let startLng = 0.00;
+let currentLat = startLat;
+let currentLng = startLng;
+
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
-    var currentLat = 43.773598; //0.00
-    var currentLng = -79.505281; //0.00
+    let places = loadPlaces();
+    renderPlaces(places);
+    console.log('Hello');
 
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position=> {
+                startLng = position.coords.longitude;
+                startLat = position.coords.latitude;
+                console.log(`Lat ${startLat} Lon ${startLng}`);
+            },
+            err=> {
+                alert(`An error occurred: ${err.code}`);
+            },
+        ); 
+    } else {
+        alert("Sorry, geolocation not supported in this browser");
+    }
+
+    startLat = 43.773598;
+    startLng = -79.505281;
+
+};
+
+function getPosition() {
+    
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
@@ -15,21 +43,18 @@ window.onload = () => {
             err=> {
                 console.error('Error in retreiving position', err);
             },
-            // {
-            //     enableHighAccuracy: true,
-            //     maximumAge: 0,
-            //     timeout: 27000,
-            // }
         ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
 
-    let places = loadPlaces();
-    renderPlaces(places);
-    console.log('Hello');
-
-};
+    return [
+        {
+            lat: currentLat,
+            long: currentLng,
+        }
+    ]
+}
 
 
 function loadPlaces() {
@@ -66,6 +91,7 @@ function loadPlaces() {
 var infoIdx = 0;
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
+    let div = document.querySelector('.instructions');
     
     places.forEach((place) => {
         let latitude = place.location.lat;
@@ -81,31 +107,26 @@ function renderPlaces(places) {
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.5 0.5 0.5');
         model.setAttribute('name', place.name);
+        model.setAttribute('info', '')
 
         model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
 
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var entity = document.querySelector('[gps-entity-place]');
-            const div = document.querySelector('.instructions');
-            var newIdx = infoIdx % 3;//place.info.length;
-            div.innerText = place.info[newIdx]
+            var el = document.querySelector('[gps-entity-place]');
+            var newIdx = infoIdx % 3;
+            div.innerText = 
+
+            el.setAttribute('info', {event: 'updateInfo', message: '${shorthand}'});
+            el.emit('updateInfo');
+            el.setAttribute('info', {event: 'updateInfo', message: '${location}'});
+            el.emit('updateInfo');
+            el.setAttribute('info', {event: 'updateInfo', message: '${hours}'});
+            el.emit('updateInfo');
             infoIdx++;
         });
 
         scene.appendChild(model);
     });
 }
-
-//function infoLassonde() {
-    //<a-text value="Sample Test of Text."  scale="40 40 40" gps-entity-place="latitude: 51.0493; longitude: -0.7238;"></a-text>
-    //var p = document.getElementById('mydata');
-    //p.innerHTML = '<p>Lassonde Building LSA (formerly Computer Science & Engineering Building<br>120 Campus Walk<br>Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr</p>';
-    //let info = document.createElement('a-text');
-    //info.setAttribute('value', 'Lassonde Building LSA (formerly Computer Science & Engineering Building<br>120 Campus Walk<br>Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr');
-    //info.setAttribute('scale', '20, 20, 20');
-    //info.setAttribute('gps-entity-place', 'latitude: 43.773598; longitude: -79.505281;')
-//}
-
-// 
