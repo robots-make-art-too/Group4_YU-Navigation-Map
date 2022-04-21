@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	
+		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	</head>
+
+
+
+
+
+	<body style='margin : 0px; overflow: hidden;'>
+		  
+			
+
+		<a-scene
+		arjs="sourceType: webcam; debugUIEnabled: false;"
+		embedded
+		renderer="logarithmicDepthBuffer: true;"
+		vr-mode-ui="enabled: false"
+		id="scene"> 
+		
+		<a-sky src= "https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-in-ar-mode></a-sky>  
+		
+	
+			<!--<a-assets>
+			  <img id="sky" src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp">
+			</a-assets>
+			<a-sky src="#sky"></a-sky>-->
+		 
+
+
+		 <a-assets>
+			<a-asset-item id="LassondeBuilding" src="https://raw.githubusercontent.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/LassondeBuilding.gltf"></a-asset-item>
+		
+		</a-assets>
+		<a-gltf-model src="#LassondeBuilding" rotaton ="0.5 0.5 0.5"></a-gltf-model> 
+		<a-entity position="-300 200 400"
+		scale="1 1 1"
+		>
+			<a-camera></a-camera>	
+		</a-entity>
+
+		<!--  the code for another building
+		<a-assets>
+			<a-asset-item id="VariHall" src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf"></a-asset-item>
+		</a-assets>
+		<a-gltf-model src="#VariHall" rotaton ="0 0 0"></a-gltf-model> 
+		<a-entity position="0 0 0">
+			<a-camera></a-camera>	
+		</a-entity>-->
+	
+		<!--	the code for pattern
+		    <a-marker type="pattern" url="https://raw.githubusercontent.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/pattern-YU_pattern.patt">
+			    <a-entity id="entity-lassonde" positon="0.5 0.5 0" rotation="0 0 0" scale="0.005 0.005 0.005" gltf-model="#LassondeBuilding"></a-entity>
+				
+			</a-marker>
+		
+		<a-assets>
+			<a-asset-item id="VariHall" src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf"></a-asset-item>
+		</a-assets>
+			<a-marker type="pattern" url="https://raw.githubusercontent.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/pattern-YU_pattern.patt">
+					<a-entity id="entity-VariHall" positon="0.5 0.5 0" rotation="0 0 0" scale="0.05 0.05 0.05" gltf-model="#VariHall"></a-entity>
+			</a-marker>	
+	
+
+			<a-entity camera></a-entity>-->
+			
+		</a-scene>
+		
+
+
+	</body>
+</htlm>
