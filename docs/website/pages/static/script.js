@@ -95,8 +95,8 @@ function renderPlaces(places) {
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             const div = document.querySelector('.instructions');
-            var newIdx = infoIdx % length(place.info)
-            div.innerText = place.info[newIdx]
+            var newIdx = infoIdx % length(place.info);
+            div.innerText = place.info[newIdx];
             infoIdx++;
         });
 
