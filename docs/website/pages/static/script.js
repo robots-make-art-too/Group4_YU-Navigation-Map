@@ -5,32 +5,34 @@ window.onload = () => {
     var currentLat = 43.773598; //0.00
     var currentLng = -79.505281; //0.00
 
+    // let places = loadPlaces();
+    // renderPlaces(places);
+    // console.log('Hello');
+
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position=> {
-                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`); // show on the console
-                currentLng = position.coords.longitude;
-                currentLat = position.coords.latitude;
-            },
-            err=> {
-                alert(`An error occurred: ${err.code}`);
+        return navigator.geolocation.getCurrentPosition(function(position) {
+            loadPlaces(position.coords)
+                .then((places) => {
+                    renderPlaces(places)
+                })
+        },
+            (err) => console.error('Error in retreiving position', err),
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+                timeout: 27000,
             }
-        );
+        ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
-
-    let places = loadPlaces();
-    renderPlaces(places);
-    console.log('Hello');
-    
 };
 
 
 function loadPlaces(position) {
-    currentLng = position.coords.longitude;
-    currentLat = position.coords.latitude;
-    console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+    currentLng = position.longitude;
+    currentLat = position.latitude;
+    console.log(`Lat ${position.latitude} Lon ${position.longitude}`);
 
     let params = {
         radius: 10, //meters
@@ -97,8 +99,8 @@ function renderPlaces(places) {
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             const div = document.querySelector('.instructions');
-            var newIdx = infoIdx % length(place.info);
-            div.innerText = place.info[newIdx];
+            var newIdx = infoIdx % length(place.info)
+            div.innerText = place.info[newIdx]
             infoIdx++;
         });
 
