@@ -34,22 +34,30 @@ function staticLoadPlaces() {
 
 var models = [
     {
+        //url for the model
         url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf',
+        //scale rotation etc
         scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
+        //I thought I needed a lat and long, can be removed later
         position: 'latitude: 43, longitude: -78',
-        //info: 'Magnemite, Lv. 5, HP 10/10',
-        message1: 'I have some super skills!',
+        info: 'Vari Hall',
+        //3 messages
+        message1: 'testing1',
         message2: 'testing2',
         message3: 'testing3'
     },
     {
+        //url for the model
         url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yidan_Zhang/LassondeBuilding.gltf',
-        scale: '0.2 0.2 0.2',
+        //scale rotation etc
+        scale: '0.5 0.5 0.5',
         rotation: '0 180 0',
+        //I thought I needed a lat and long, can be removed later
         position: 'latitude: 43, longitude: -78',
-        //info: 'Herobrine, Lv. 80, HP 100/100',
-        message: 'I like to dance!',
+        info: 'Lassonde Building',
+        //3 messages
+        message1: 'testing1',
         message2: 'testing2',
         message3: 'testing3'
     },
