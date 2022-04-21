@@ -13,7 +13,7 @@ window.onload = () => {
                 console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
             },
             err=> {
-                console.error('Error in retreiving position', err
+                console.error('Error in retreiving position', err);
             },
             // {
             //     enableHighAccuracy: true,
