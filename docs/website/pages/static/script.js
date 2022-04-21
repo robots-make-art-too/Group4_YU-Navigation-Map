@@ -12,12 +12,14 @@ window.onload = () => {
                 currentLat = position.coords.latitude;
                 console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
             },
-            (err) => console.error('Error in retreiving position', err),
-            {
-                enableHighAccuracy: true,
-                maximumAge: 0,
-                timeout: 27000,
-            }
+            err=> {
+                console.error('Error in retreiving position', err
+            },
+            // {
+            //     enableHighAccuracy: true,
+            //     maximumAge: 0,
+            //     timeout: 27000,
+            // }
         ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
@@ -87,7 +89,7 @@ function renderPlaces(places) {
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var entity = document.querySelector('[gps-entity-place]');
             const div = document.querySelector('.instructions');
-            var newIdx = infoIdx % length(place.info)
+            var newIdx = infoIdx % 3;//place.info.length;
             div.innerText = place.info[newIdx]
             infoIdx++;
         });
