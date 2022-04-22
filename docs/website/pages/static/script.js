@@ -117,7 +117,7 @@ function renderPlaces(places) {
             var el = document.querySelector('[gps-entity-place]');
             var newIdx = infoIdx % 3;
 
-            if (newIdx === 0) {
+            if (newIdx === 1) {
                 el.setAttribute('info', {event: 'updateInfo', message: shorthand});
                 el.emit('updateInfo');
                 div.innerText = shorthand;
@@ -130,7 +130,7 @@ function renderPlaces(places) {
                 el.emit('updateInfo');
                 div.innerText = hours;
             }
-
+            
             infoIdx++;
 
         });
