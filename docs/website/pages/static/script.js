@@ -26,8 +26,8 @@ window.onload = () => {
         alert("Sorry, geolocation not supported in this browser");
     }
 
-    startLat = 43.773598;
-    startLng = -79.505281;
+    startLat = 43.773071;
+    startLng = -79.503404;
 
 };
 
@@ -116,15 +116,23 @@ function renderPlaces(places) {
         document.querySelector('button[data-action="change"]').addEventListener('click', function () {
             var el = document.querySelector('[gps-entity-place]');
             var newIdx = infoIdx % 3;
-            div.innerText = 
 
-            el.setAttribute('info', {event: 'updateInfo', message: shorthand});
-            el.emit('updateInfo');
-            el.setAttribute('info', {event: 'updateInfo', message: location});
-            el.emit('updateInfo');
-            el.setAttribute('info', {event: 'updateInfo', message: hours});
-            el.emit('updateInfo');
+            if (newIdx === 0) {
+                el.setAttribute('info', {event: 'updateInfo', message: shorthand});
+                el.emit('updateInfo');
+                div.innerText = shorthand;
+            } else if (newIdx === 2)  {
+                el.setAttribute('info', {event: 'updateInfo', message: location});
+                el.emit('updateInfo');
+                div.innerText = location;
+            } else {
+                el.setAttribute('info', {event: 'updateInfo', message: hours});
+                el.emit('updateInfo');
+                div.innerText = hours;
+            }
+
             infoIdx++;
+
         });
 
         scene.appendChild(model);
