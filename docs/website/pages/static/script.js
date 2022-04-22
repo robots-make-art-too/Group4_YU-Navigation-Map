@@ -122,7 +122,7 @@ function renderPlaces(places) {
             el.emit('updateInfo');
             el.setAttribute('info', {event: 'updateInfo', message: location});
             el.emit('updateInfo');
-            el.setAttribute('info', {event: 'updateInfo', message: hours);
+            el.setAttribute('info', {event: 'updateInfo', message: hours});
             el.emit('updateInfo');
             infoIdx++;
         });
