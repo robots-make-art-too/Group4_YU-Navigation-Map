@@ -118,9 +118,9 @@ function renderPlaces(places) {
             var newIdx = infoIdx % 3;
             div.innerText = 
 
-            el.setAttribute('info', {event: 'updateInfo', message: '${shorthand}'});
+            el.setAttribute('info', {event: 'updateInfo', message: 'info'});
             el.emit('updateInfo');
-            el.setAttribute('info', {event: 'updateInfo', message: '${location}'});
+            el.setAttribute('info', {event: 'updateInfo', message: location});
             el.emit('updateInfo');
             el.setAttribute('info', {event: 'updateInfo', message: '${hours}'});
             el.emit('updateInfo');
