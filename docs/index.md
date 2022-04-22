@@ -29,6 +29,7 @@
     <!-- <p>The AR link in the website can guide students to get the route and building through GPS.</p> -->
     <body>
     	<model-viewer src="website/assets/models/LassondeBuilding.glb" camera-controls disable-zoom camera-orbit="305deg 90deg 2.5m" auto-rotate ios-src="assets/models/LassondeBuilding.usdz"> </model-viewer>
+        <model-viewer src="website/assets/models/VariHall.gltf" camera-controls disable-zoom camera-orbit="305deg 90deg 2.5m" auto-rotate> </model-viewer>
         <h4>
             Click the button to open the AR web application
         </h4>
