@@ -118,11 +118,11 @@ function renderPlaces(places) {
             var newIdx = infoIdx % 3;
             div.innerText = 
 
-            el.setAttribute('info', {event: 'updateInfo', message: 'info'});
+            el.setAttribute('info', {event: 'updateInfo', message: shorthand});
             el.emit('updateInfo');
             el.setAttribute('info', {event: 'updateInfo', message: location});
             el.emit('updateInfo');
-            el.setAttribute('info', {event: 'updateInfo', message: '${hours}'});
+            el.setAttribute('info', {event: 'updateInfo', message: hours);
             el.emit('updateInfo');
             infoIdx++;
         });
