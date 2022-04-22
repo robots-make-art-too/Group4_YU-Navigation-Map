@@ -44,7 +44,7 @@
 	<a-scene vr-mode-ui="enabled: false"
 		arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
 		renderer="antialias: true; alpha: true" id="scene">
-		<a-camera gps-camera="simulateLatitude: 43.773071; simulateLongitude: -79.503404;" rotation-reader></a-camera>
+		
 
 		<a-sky src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-in-ar-mode>
 		</a-sky>
@@ -57,10 +57,12 @@
 
 		</a-assets>
 		<a-gltf-model src="#LassondeBuilding" rotaton="0.5 0.5 0.5"></a-gltf-model>
+		<!--
 		<a-entity position="-300 200 400" scale="1 1 1">
 			<a-camera></a-camera>
 		</a-entity>
-
+		-->
+		<a-camera gps-camera="simulateLatitude: 43.773598; simulateLongitude: -79.505281;" rotation-reader></a-camera>
 	</a-scene>
 	<div class="centered">
 		<button data-action="change"></button>

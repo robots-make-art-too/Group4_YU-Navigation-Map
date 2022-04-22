@@ -26,8 +26,8 @@ window.onload = () => {
         alert("Sorry, geolocation not supported in this browser");
     }
 
-    startLat = 43.773071;
-    startLng = -79.503404;
+    startLat = 43.773598;
+    startLng = -79.505281;
 
 };
 
