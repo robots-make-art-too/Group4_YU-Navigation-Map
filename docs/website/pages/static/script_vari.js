@@ -56,31 +56,6 @@ function getPosition() {
     ]
 }
 
-function getPosition() {
-    
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position=> {
-                currentLng = position.coords.longitude;
-                currentLat = position.coords.latitude;
-                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-            },
-            err=> {
-                console.error('Error in retreiving position', err);
-            },
-        ); 
-    } else {
-        alert("Sorry, geolocation not supported in this browser");
-    }
-
-    return [
-        {
-            lat: currentLat,
-            long: currentLng,
-        }
-    ]
-}
-
 function loadPlaces() {
     return [ 
         {
@@ -116,7 +91,7 @@ function renderPlaces(places) {
         model.setAttribute('gltf-model', places.url);
         model.setAttribute('rotation', '0 180 0');
         model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('scale', '0.05 0.05 0.05');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '')
 
