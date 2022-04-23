@@ -92,7 +92,7 @@ function renderPlaces(places) {
         model.setAttribute('gltf-model', places.url);
         model.setAttribute('rotation', '0 180 0');
         model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '0.005 0.005 0.005');
+        model.setAttribute('scale', '0.02 0.02 0.02');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '')
 
