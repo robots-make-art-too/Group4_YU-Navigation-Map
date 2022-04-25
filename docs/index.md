@@ -33,7 +33,7 @@
         <h4>
             Click the button to open the AR web application
         </h4>
-        <button id="ar" onclick="openTab('website/pages/AR_GroupProject4LA.html')" type="button">
+        <button id="ar" onclick="openTab('website/pages/AR-GPS_GroupProject4.html')" type="button">
             <!-- Start AR -->Lassonde
         </button>
         <button id="ar" onclick="openTab('website/pages/AR_GroupProject4VH.html')" type="button">
