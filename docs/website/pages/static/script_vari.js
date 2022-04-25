@@ -98,28 +98,31 @@ function renderPlaces(places) {
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
+        if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
+            document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+                var el = document.querySelector('[gps-entity-place]');
+                var newIdx = infoIdx % 3;
 
-        document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-            var el = document.querySelector('[gps-entity-place]');
-            var newIdx = infoIdx % 3;
+                if (newIdx === 1) {
+                    el.setAttribute('info', { event: 'updateInfo', message: shorthand });
+                    el.emit('updateInfo');
+                    div.innerText = shorthand;
+                } else if (newIdx === 2) {
+                    el.setAttribute('info', { event: 'updateInfo', message: location });
+                    el.emit('updateInfo');
+                    div.innerText = location;
+                } else {
+                    el.setAttribute('info', { event: 'updateInfo', message: hours });
+                    el.emit('updateInfo');
+                    div.innerText = hours;
+                }
 
-            if (newIdx === 1) {
-                el.setAttribute('info', {event: 'updateInfo', message: shorthand});
-                el.emit('updateInfo');
-                div.innerText = shorthand;
-            } else if (newIdx === 2)  {
-                el.setAttribute('info', {event: 'updateInfo', message: location});
-                el.emit('updateInfo');
-                div.innerText = location;
-            } else {
-                el.setAttribute('info', {event: 'updateInfo', message: hours});
-                el.emit('updateInfo');
-                div.innerText = hours;
-            }
-            
-            infoIdx++;
+                infoIdx++;
 
-        });
+            });
+        } else {
+            div.innerText = ' ';
+        }
 
         scene.appendChild(model);
     });
