@@ -69,6 +69,7 @@ function loadPlaces() {
                 short: 'Name: Vari Hall<br>adorned with yellow brick and two lower rectangular structures extending from its sides<br>Vari Hall is a well-designed and extraordinary space.',
                 loc: 'The building was constructed in 1992<br>named after one of York Universitys benefactors George Vari (1923-2010)',
                 hour: 'The Sociology Common Room (2101 Vari Hall) and the Ernest Lilienstein Library (2094 Vari Hall)<br>are open from 8:30 a.m. to 4:30 p.m. on weekdays',
+                blank: ' '
             },
         }
     ]
@@ -103,22 +104,32 @@ function renderPlaces(places) {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
 
-                if (newIdx === 1) {
-                    el.setAttribute('info', { event: 'updateInfo', message: shorthand });
-                    el.emit('updateInfo');
-                    div.innerText = shorthand;
-                } else if (newIdx === 2) {
-                    el.setAttribute('info', { event: 'updateInfo', message: location });
-                    el.emit('updateInfo');
-                    div.innerText = location;
-                } else {
-                    el.setAttribute('info', { event: 'updateInfo', message: hours });
-                    el.emit('updateInfo');
-                    div.innerText = hours;
+                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+                const getNum = distanceMsg.split(" ");
+                const number = parseInt(getNum[0]);
+
+                if (number < 10) {
+                    if (newIdx === 1) {
+                        el.setAttribute('info', { event: 'updateInfo', message: shorthand });
+                        el.emit('updateInfo');
+                        div.innerText = shorthand;
+                    } else if (newIdx === 2) {
+                        el.setAttribute('info', { event: 'updateInfo', message: location });
+                        el.emit('updateInfo');
+                        div.innerText = location;
+                    } else {
+                        el.setAttribute('info', { event: 'updateInfo', message: hours });
+                        el.emit('updateInfo');
+                        div.innerText = hours;
+                    }
+
+                    infoIdx++;
                 }
-
-                infoIdx++;
-
+                else {
+                    el.setAttribute('info', { event: 'updateInfo', message: blank });
+                    el.emit('updateInfo');
+                    div.innerText = blank;
+                }
             });
         } else {
             div.innerText = ' ';

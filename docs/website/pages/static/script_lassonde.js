@@ -70,12 +70,15 @@ function loadPlaces() {
                 short: 'Name: Lassonde Building LSA (formerly Computer Science & Engineering Building)',
                 loc: 'Location: 120 Campus Walk',
                 hour: 'Operating Hours: Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr',
+                blank: ' '
             },
         },
     ]
 };
 
 var infoIdx = 0;
+
+
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
     let div = document.querySelector('.instructions');
@@ -84,8 +87,9 @@ function renderPlaces(places) {
         let latitude = place.location.lat;
         let longitude = place.location.lng;
         let shorthand = place.info.short;
-        let location = place.info.loc
+        let location = place.info.loc;
         let hours = place.info.hour;
+        let blank = place.info.blank;
        
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
@@ -104,22 +108,32 @@ function renderPlaces(places) {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
 
-                if (newIdx === 1) {
-                    el.setAttribute('info', { event: 'updateInfo', message: shorthand });
-                    el.emit('updateInfo');
-                    div.innerText = shorthand;
-                } else if (newIdx === 2) {
-                    el.setAttribute('info', { event: 'updateInfo', message: location });
-                    el.emit('updateInfo');
-                    div.innerText = location;
-                } else {
-                    el.setAttribute('info', { event: 'updateInfo', message: hours });
-                    el.emit('updateInfo');
-                    div.innerText = hours;
+                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+                const getNum = distanceMsg.split(" ");
+                const number = parseInt(getNum[0]);
+
+                if (number < 10) {
+                    if (newIdx === 1) {
+                        el.setAttribute('info', { event: 'updateInfo', message: shorthand });
+                        el.emit('updateInfo');
+                        div.innerText = shorthand;
+                    } else if (newIdx === 2) {
+                        el.setAttribute('info', { event: 'updateInfo', message: location });
+                        el.emit('updateInfo');
+                        div.innerText = location;
+                    } else {
+                        el.setAttribute('info', { event: 'updateInfo', message: hours });
+                        el.emit('updateInfo');
+                        div.innerText = hours;
+                    }
+
+                    infoIdx++;
                 }
-
-                infoIdx++;
-
+                else {
+                    el.setAttribute('info', { event: 'updateInfo', message: blank });
+                    el.emit('updateInfo');
+                    div.innerText = blank;
+                }
             });
         //} else {
         //    div.innerText = ' ';
