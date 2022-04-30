@@ -108,11 +108,9 @@ function renderPlaces(places) {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
 
-                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-                const getNum = distanceMsg.split(" ");
-                const number = parseInt(getNum[0]);
+                const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (number < 10) {
+                if (distance < 10) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
