@@ -40,7 +40,6 @@ window.onload = () => {
 };
 
 function getPosition() {
-    
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
@@ -117,6 +116,9 @@ function renderPlaces(places) {
                 var newIdx = infoIdx % 3;
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
+                console.log(distance);
+                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+                console.log(distanceMsg);
 
                 if (distance < 2) {
                     if (newIdx === 1) {
