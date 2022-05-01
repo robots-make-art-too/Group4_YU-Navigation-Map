@@ -1,7 +1,7 @@
 let startLat = 0.00;
 let startLng = 0.00;
-let currentLat; // = startLat;
-let currentLng; // = startLng;
+let currentLat = startLat;
+let currentLng = startLng;
 
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
@@ -18,7 +18,7 @@ window.onload = () => {
                 startLat = position.coords.latitude;
                 console.log(`start Lat ${startLat} Lon ${startLng} ::: current: Lat ${currentLat} Lng ${currentLng}`);
                 console.log(`start next Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-                if(startLng == currentLng) {
+                if(startLng != currentLng) {
                     console.log(`start = current! FIRST TIME`);
                 }
             },
@@ -49,7 +49,7 @@ function getPosition() {
                 currentLat = position.coords.latitude;
                 console.log(`current Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
                 console.log(`current next Lat ${currentLat} Lon ${currentLng} ::: start:  Lat ${startLat} Lon ${startLng}`);
-                if(startLng == currentLng) {
+                if(startLng != currentLng) {
                     console.log(`start = current! NEXT TIME`);
                 }
             },
