@@ -11,7 +11,7 @@ window.onload = () => {
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
     
-    console.log(coordsGPS.);
+    console.log(coordsGPS);
     console.log(startLat);
     console.log(startLng);
     
