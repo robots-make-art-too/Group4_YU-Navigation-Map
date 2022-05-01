@@ -13,7 +13,10 @@ window.onload = () => {
     
     let places = loadPlaces();
     renderPlaces(places);
+    
     console.log(coordsGPS);
+    console.log(startLat);
+    console.log(startLng);
 
 //     currentLat = startLat;
 //     currentLng = startLng;
@@ -30,6 +33,7 @@ function getPosition() {
             position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
+                console.log(`start lat: ${currentLat} long: ${currentLng}`);
             },
             err=> {
                 console.error('Error in retreiving position', err);
