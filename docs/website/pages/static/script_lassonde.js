@@ -11,7 +11,7 @@ window.onload = () => {
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
     
-    console.log(coordsGPS);
+    console.log(coordsGPS.);
     console.log(startLat);
     console.log(startLng);
     
@@ -31,9 +31,9 @@ function getPosition() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
-                currentLng = position.coords.longitude;
+                currentLng = 
                 currentLat = position.coords.latitude;
-                console.log(`start lat: ${currentLat} long: ${currentLng}`);
+                console.log(`Lat ${position.coords.longitude} Lon ${position.coords.longitude}`);
             },
             err=> {
                 console.error('Error in retreiving position', err);
