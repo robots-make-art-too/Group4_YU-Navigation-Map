@@ -100,7 +100,7 @@ function renderPlaces(places) {
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
-        //if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
+        if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
@@ -130,9 +130,9 @@ function renderPlaces(places) {
                     div.innerText = blank;
                 }
             });
-        //} else {
-        //    div.innerText = ' ';
-        //}
+        } else {
+           div.innerText = ' ';
+        }
 
         scene.appendChild(model);
     });
