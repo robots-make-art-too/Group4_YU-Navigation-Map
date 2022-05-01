@@ -110,6 +110,8 @@ function renderPlaces(places) {
         if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
 //         if(check.lat){
             console.log(`checks out!: `we are on the way`);
+            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
+            
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
