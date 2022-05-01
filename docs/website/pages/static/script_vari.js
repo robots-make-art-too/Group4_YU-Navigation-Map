@@ -102,8 +102,8 @@ function renderPlaces(places) {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
         let check = getPosition();
-//         if (getPosition() == 'lat: 43.773071, lng: -79.503404,') {
-        if(check.lat){
+        if (getPosition()){ // == 'lat: 43.773071, lng: -79.503404,') {
+//         if(check.lat){
             console.log('checks out!');
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
