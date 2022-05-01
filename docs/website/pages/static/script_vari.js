@@ -101,7 +101,10 @@ function renderPlaces(places) {
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
-        if (getPosition() == 'lat: 43.773071, lng: -79.503404,') {
+        let check = getPosition();
+//         if (getPosition() == 'lat: 43.773071, lng: -79.503404,') {
+        if((check.lat >= latitude) | (check.long >= longitude)){
+            console.log('checks out!');
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
