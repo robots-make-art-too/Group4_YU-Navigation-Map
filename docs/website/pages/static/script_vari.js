@@ -1,5 +1,5 @@
-let startLat = 0.00;
-let startLng = 0.00;
+let startLat;
+let startLng;
 let currentLat = startLat;
 let currentLng = startLng;
 
@@ -102,7 +102,7 @@ function renderPlaces(places) {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         });
         let check = getPosition();
-        if (getPosition()){ // == 'lat: 43.773071, lng: -79.503404,') {
+        if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
 //         if(check.lat){
             console.log('checks out!');
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
@@ -111,7 +111,7 @@ function renderPlaces(places) {
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (distance == null) {
+                if (distance +null) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
