@@ -66,9 +66,9 @@ function loadPlaces() {
             },
             url: '../../assets/models/VariHall.gltf',
             info: {
-                short: 'Name: Vari Hall<br>adorned with yellow brick and two lower rectangular structures extending from its sides<br>Vari Hall is a well-designed and extraordinary space.',
-                loc: 'The building was constructed in 1992<br>named after one of York Universitys benefactors George Vari (1923-2010)',
-                hour: 'The Sociology Common Room (2101 Vari Hall) and the Ernest Lilienstein Library (2094 Vari Hall)<br>are open from 8:30 a.m. to 4:30 p.m. on weekdays',
+                short: 'Name: Vari Hall \n adorned with yellow brick and two lower rectangular structures extending from its sides \n Vari Hall is a well-designed and extraordinary space.',
+                loc: 'The building was constructed in 1992 \n named after one of York Universitys benefactors George Vari (1923-2010)',
+                hour: 'The Sociology Common Room (2101 Vari Hall) and the Ernest Lilienstein Library (2094 Vari Hall) \n are open from 8:30 a.m. to 4:30 p.m. on weekdays',
                 blank: ' '
             },
         }
