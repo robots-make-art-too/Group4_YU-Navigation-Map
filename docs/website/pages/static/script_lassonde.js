@@ -65,11 +65,11 @@ function loadPlaces() {
                 lat: 43.773598,
                 lng: -79.505281,
             },
-            url: '../../assets/models/LassondeBuilding.gltf',
+            url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Jason_Lu/docs/website/assets/models/LassondeBuilding.gltf',
             info: {
                 short: 'Name: Lassonde Building LSA (formerly Computer Science & Engineering Building)',
                 loc: 'Location: 120 Campus Walk',
-                hour: 'Operating Hours: Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr',
+                hour: 'Building operating hours: 7:00am to 9:00pmMonday to Friday, weekends building is locked 24hr',
                 blank: ' '
             },
         },
