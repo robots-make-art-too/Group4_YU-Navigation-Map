@@ -101,7 +101,7 @@ function renderPlaces(places) {
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
-        if (getPosition() !=== 'lat: 43.773598, lng: -79.505281,') {
+        if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
             
             console.log(`lat: ${currentLat} long: ${currentLng}`);
             
