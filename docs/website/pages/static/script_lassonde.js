@@ -8,7 +8,7 @@ window.onload = () => {
     
     let places = loadPlaces();
     renderPlaces(places);
-    console.log(`Hello! GPS: ${coordsGPS}`');
+    console.log(`Hello! GPS: ${coordsGPS}`);
 
 //     let startLat = 0.00;
 //     let startLng = 0.00;
