@@ -31,7 +31,7 @@ function getPosition() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
-                currentLng = 
+                currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
                 console.log(`Lat ${position.coords.longitude} Lon ${position.coords.longitude}`);
             },
