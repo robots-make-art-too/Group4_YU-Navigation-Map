@@ -47,9 +47,7 @@ function getPosition() {
             position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
-                console.log(`current Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-                console.log(`current next Lat ${currentLat} Lon ${currentLng} ::: start:  Lat ${startLat} Lon ${startLng}`);
-                if(startLng != currentLng) {
+                if(startLng == currentLng) {
                     console.log(`start = current! NEXT TIME`);
                 }
             },
@@ -104,12 +102,12 @@ function renderPlaces(places) {
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', place.url);
-        model.setAttribute('rotation', '90 180 0');
+        model.setAttribute('rotation', '0 90 0');
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.05 0.05 0.05');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '');
-        model.setAttribute('position', '0 0 -10');
+        model.setAttribute('position', '0 0 -20');
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
