@@ -62,26 +62,32 @@
 
 
 	<div class="centered instructions"></div>
-	<a-scene vr-mode-ui="enabled: false"
-		arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
-		renderer="antialias: true; alpha: true" id="scene">
+	<a-scene id="scene"
+		 vr-mode-ui="enabled: false"
+		 arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
+		 renderer="antialias: true; alpha: true"
+		 stats>
 
-		<a-sky src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-on-enter-ar>
-		</a-sky>
+		<a-sky src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-on-enter-ar/>
 
 		<a-assets>
 			<a-asset-item id="VariHall"
 				src="https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Yuqing_Guo/VariHall.gltf">
 			</a-asset-item>
 		</a-assets>
-		<a-gltf-model src="#VariHall" rotaton="0.5 0.5 0.5" maxDistance="15" scale="0.25 0.25 0.25" gps-entity-place="latitude: 43.773071; longitude: -79.503404;"></a-gltf-model>
+		<a-entity gltf-model src="#VariHall" 
+			  scale="0.25 0.25 0.25" rotaton="0.5 0.5 0.5"
+			  maxDistance="15" 
+			  gps-entity-place="latitude: 43.773071; longitude: -79.503404;"
+			  info
+		</a-entity>
 		
 		<!--
 		<a-entity position="20 20 100" scale="1 1 1">
 			<a-camera gps-camera="simulateLatitude: 43.773071; simulateLongitude: -79.503404;" rotation-reader></a-camera>
 		</a-entity>
 		-->
-		<a-camera gps-camera rotation-reader></a-camera>
+		<a-camera gps-cameraa="simulateLatitude: 43.773071; simulateLongitude: -79.503404;" rotation-reader></a-camera>
 
 	<a-camera gps-camera rotation-reader></a-camera>
 	
