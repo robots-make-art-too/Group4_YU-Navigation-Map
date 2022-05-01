@@ -84,9 +84,10 @@ function renderPlaces(places) {
         let latitude = place.location.lat;
         let longitude = place.location.lng;
         let shorthand = place.info.short;
-        let location = place.info.loc
+        let location = place.info.loc;
         let hours = place.info.hour;
-       
+        let blank = place.info.blank;
+        
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', place.url);
