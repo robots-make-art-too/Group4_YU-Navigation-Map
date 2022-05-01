@@ -111,7 +111,7 @@ function renderPlaces(places) {
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (distance != null) {
+                if (distance == null) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
