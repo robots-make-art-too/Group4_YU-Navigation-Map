@@ -1,23 +1,23 @@
-let startLat = 0.00;
-let startLng = 0.00;
-let currentLat = startLat;
-let currentLng = startLng;
+// let startLat = 0.00;
+// let startLng = 0.00;
+// let currentLat = startLat;
+// let currentLng = startLng;
 
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
     let coordsGPS = getPosition();
-    startLat = coordsGPS.lat;
-    startLng = coordsGPS.long;
-    
-    let places = loadPlaces();
-    renderPlaces(places);
+    let startLat = coordsGPS.lat;
+    let startLng = coordsGPS.long;
     
     console.log(coordsGPS);
     console.log(startLat);
     console.log(startLng);
-
+    
+    let places = loadPlaces();
+    renderPlaces(places);
+    
 //     currentLat = startLat;
 //     currentLng = startLng;
 
@@ -27,12 +27,11 @@ window.onload = () => {
 };
 
 function getPosition() {
-    
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
-                currentLng = position.coords.longitude;
-                currentLat = position.coords.latitude;
+                let currentLng = position.coords.longitude;
+                let currentLat = position.coords.latitude;
                 console.log(`start lat: ${currentLat} long: ${currentLng}`);
             },
             err=> {
@@ -93,9 +92,6 @@ function renderPlaces(places) {
         model.setAttribute('info', '');
         model.setAttribute('position', '0 0 -20');
 
-        model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
-        });
         let check = getPosition();
 //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
         if(check) {    
@@ -107,6 +103,8 @@ function renderPlaces(places) {
 
                 const distance = el.getAttribute('distance');
                 console.log(distance);
+                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+                console.log(distanceMsg);
 
                 if (distance < 10) {
                     if (newIdx === 1) {
@@ -135,6 +133,9 @@ function renderPlaces(places) {
            div.innerText = ' ';
         }
 
+        model.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+        });
         scene.appendChild(model);
     });
 }
