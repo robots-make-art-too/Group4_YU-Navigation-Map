@@ -91,9 +91,9 @@ function renderPlaces(places) {
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', place.url);
-        model.setAttribute('rotation', '0 180 0');
+        model.setAttribute('rotation', '0 180 90');
         model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '0.1 0.1 0.1');
+        model.setAttribute('scale', '0.05 0.05 0.05');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '');
         model.setAttribute('position', '0 0 -5');
