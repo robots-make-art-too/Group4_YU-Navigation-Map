@@ -26,8 +26,8 @@ window.onload = () => {
         alert("Sorry, geolocation not supported in this browser");
     }
 
-    startLat = 43.773598;
-    startLng = -79.505281;
+//     startLat = 43.773598;
+//     startLng = -79.505281;
 
 };
 
@@ -101,7 +101,10 @@ function renderPlaces(places) {
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
-        if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
+        if (getPosition() !=== 'lat: 43.773598, lng: -79.505281,') {
+            
+            console.log(`lat: ${currentLat} long: ${currentLng}`);
+            
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
