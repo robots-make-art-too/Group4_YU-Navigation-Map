@@ -1,5 +1,5 @@
-let startLat = 0.00;
-let startLng = 0.00;
+let startLat;
+let startLng;
 let currentLat = startLat;
 let currentLng = startLng;
 
@@ -17,6 +17,7 @@ window.onload = () => {
     
     let places = loadPlaces();
     renderPlaces(places);
+    console.log('Hello');
     
 //     currentLat = startLat;
 //     currentLng = startLng;
