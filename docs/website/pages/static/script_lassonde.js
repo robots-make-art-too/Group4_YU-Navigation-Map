@@ -2,6 +2,7 @@ let startLat = 0.00;
 let startLng = 0.00;
 let currentLat = startLat;
 let currentLng = startLng;
+
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
@@ -12,7 +13,7 @@ window.onload = () => {
     
     let places = loadPlaces();
     renderPlaces(places);
-    console.log(`Hello! GPS: ${coordsGPS}`);
+    console.log(coordsGPS);
 
 //     currentLat = startLat;
 //     currentLng = startLng;
@@ -100,7 +101,7 @@ function renderPlaces(places) {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
 
-                const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
+                const distance = el.getAttribute('distance');
                 console.log(distance);
 
                 if (distance < 10) {
