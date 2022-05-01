@@ -1,7 +1,7 @@
 let startLat = 0.00;
 let startLng = 0.00;
-let currentLat = startLat;
-let currentLng = startLng;
+let currentLat; // = startLat;
+let currentLng; // = startLng;
 
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
@@ -16,7 +16,11 @@ window.onload = () => {
             position=> {
                 startLng = position.coords.longitude;
                 startLat = position.coords.latitude;
-                console.log(`Lat ${startLat} Lon ${startLng}`);
+                console.log(`start Lat ${startLat} Lon ${startLng} ::: current: Lat ${currentLat} Lng ${currentLng}`);
+                console.log(`start next Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+                if(startLng == currentLng) {
+                    console.log(`start = current! FIRST TIME`);
+                }
             },
             err=> {
                 alert(`An error occurred: ${err.code}`);
@@ -26,6 +30,9 @@ window.onload = () => {
         alert("Sorry, geolocation not supported in this browser");
     }
 
+    currentLat = startLat;
+    currentLng = startLng;
+
 //     startLat = 43.773598;
 //     startLng = -79.505281;
 
@@ -34,11 +41,17 @@ window.onload = () => {
 function getPosition() {
     
     if(navigator.geolocation) {
+        startLat = currentLat;
+        startLng = currentLng;
         navigator.geolocation.getCurrentPosition(
             position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
-                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+                console.log(`current Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+                console.log(`current next Lat ${currentLat} Lon ${currentLng} ::: start:  Lat ${startLat} Lon ${startLng}`);
+                if(startLng == currentLng) {
+                    console.log(`start = current! NEXT TIME`);
+                }
             },
             err=> {
                 console.error('Error in retreiving position', err);
@@ -91,19 +104,19 @@ function renderPlaces(places) {
         let model = document.createElement('a-entity');
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', place.url);
-        model.setAttribute('rotation', '0 180 90');
+        model.setAttribute('rotation', '90 180 0');
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.05 0.05 0.05');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '');
-        model.setAttribute('position', '0 0 -5');
+        model.setAttribute('position', '0 0 -10');
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
         });
         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
             
-            console.log(`lat: ${currentLat} long: ${currentLng}`);
+           console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng}`);
             
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
