@@ -1,37 +1,21 @@
-let startLat = 0.00;
-let startLng = 0.00;
-let currentLat = startLat;
-let currentLng = startLng;
-
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
+    let coordsGPS = getPosition();
+    let startLat = coordsGPS.lat;
+    let startLng = coordsGPS.long;
+    
     let places = loadPlaces();
     renderPlaces(places);
-    console.log('Hello');
+    console.log(`Hello! GPS: ${coordsGPS}`');
 
-//     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position=> {
-                startLng = position.coords.longitude;
-                startLat = position.coords.latitude;
-                console.log(`start Lat ${startLat} Lon ${startLng} ::: current: Lat ${currentLat} Lng ${currentLng}`);
-                console.log(`start next Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-                if(startLng != currentLng) {
-                    console.log(`start = current! FIRST TIME`);
-                }
-            },
-            err=> {
-                alert(`An error occurred: ${err.code}`);
-            },
-        ); 
-//     } else {
-//         alert("Sorry, geolocation not supported in this browser");
-//     }
-
-    currentLat = startLat;
-    currentLng = startLng;
+//     let startLat = 0.00;
+//     let startLng = 0.00;
+//     let currentLat = startLat;
+//     let currentLng = startLng;
+//     currentLat = startLat;
+//     currentLng = startLng;
 
 //     startLat = 43.773598;
 //     startLng = -79.505281;
@@ -40,32 +24,27 @@ window.onload = () => {
 
 function getPosition() {
     
-//     if(navigator.geolocation) {
-        startLat = currentLat;
-        startLng = currentLng;
+    if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
-                currentLng = position.coords.longitude;
-                currentLat = position.coords.latitude;
-                if(startLng == currentLng) {
-                    console.log(`start = current! NEXT TIME`);
-                }
+                let currentLng = position.coords.longitude;
+                let currentLat = position.coords.latitude;
             },
             err=> {
                 console.error('Error in retreiving position', err);
             },
         ); 
-//     } else {
-//         alert("Sorry, geolocation not supported in this browser");
-//     }
+    } else {
+        alert("Sorry, geolocation not supported in this browser");
+    }
 
     return [
         {
             lat: currentLat,
             long: currentLng,
-        }
+        },
     ]
-}
+};
 
 function loadPlaces() {
     return [ 
@@ -122,6 +101,7 @@ function renderPlaces(places) {
                 var newIdx = infoIdx % 3;
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
+                console.log(distance);
 
                 if (distance < 10) {
                     if (newIdx === 1) {
