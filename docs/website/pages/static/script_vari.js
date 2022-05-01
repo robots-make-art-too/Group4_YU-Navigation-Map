@@ -109,14 +109,14 @@ function renderPlaces(places) {
         let check = getPosition();
         if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
 //         if(check.lat){
-            console.log('checks out!');
+            console.log(`checks out!: `we are on the way`);
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
                 var el = document.querySelector('[gps-entity-place]');
                 var newIdx = infoIdx % 3;
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (distance ) {
+                if (distance < 2) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
