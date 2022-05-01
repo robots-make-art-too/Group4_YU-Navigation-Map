@@ -56,7 +56,6 @@ function getPosition() {
     ]
 }
 
-
 function loadPlaces() {
     return [ 
         {
@@ -77,8 +76,6 @@ function loadPlaces() {
 };
 
 var infoIdx = 0;
-
-
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
     let div = document.querySelector('.instructions');
