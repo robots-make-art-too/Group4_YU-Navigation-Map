@@ -7,24 +7,32 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
+    let coordsGPS = getPosition();
+    startLat = coordsGPS.lat;
+    startLng = coordsGPS.long;
+    
+    console.log(coordsGPS);
+    console.log(startLat);
+    console.log(startLng);
+    
     let places = loadPlaces();
     renderPlaces(places);
     console.log('Hello');
 
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position=> {
-                startLng = position.coords.longitude;
-                startLat = position.coords.latitude;
-                console.log(`Lat ${startLat} Lon ${startLng}`);
-            },
-            err=> {
-                alert(`An error occurred: ${err.code}`);
-            },
-        ); 
-    } else {
-        alert("Sorry, geolocation not supported in this browser");
-    }
+//     if(navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(
+//             position=> {
+//                 startLng = position.coords.longitude;
+//                 startLat = position.coords.latitude;
+//                 console.log(`Lat ${startLat} Lon ${startLng}`);
+//             },
+//             err=> {
+//                 alert(`An error occurred: ${err.code}`);
+//             },
+//         ); 
+//     } else {
+//         alert("Sorry, geolocation not supported in this browser");
+//     }
 
 //     startLat = 43.773071;
 //     startLng = -79.503404;
@@ -52,9 +60,9 @@ function getPosition() {
         {
             lat: currentLat,
             long: currentLng,
-        }
+        },
     ]
-}
+};
 
 function loadPlaces() {
     return [ 
@@ -98,9 +106,6 @@ function renderPlaces(places) {
         model.setAttribute('info', '')
         model.setAttribute('position', '0 0 -5');
 
-        model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        });
         let check = getPosition();
         if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
 //         if(check.lat){
@@ -111,7 +116,7 @@ function renderPlaces(places) {
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (distance +null) {
+                if (distance ) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
@@ -136,8 +141,11 @@ function renderPlaces(places) {
             });
         } else {
             div.innerText = ' ';
-        }
-
+        }        
+        
+        model.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+        });
         scene.appendChild(model);
     });
 }
