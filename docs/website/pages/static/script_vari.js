@@ -99,7 +99,7 @@ function renderPlaces(places) {
         model.setAttribute('position', '0 0 -5');
 
         model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')), { detail: { component: this.el }}))
         });
         let check = getPosition();
         if (getPosition()){ // == 'lat: 43.773071, lng: -79.503404,') {
@@ -111,7 +111,7 @@ function renderPlaces(places) {
 
                 const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
 
-                if (distance < 10) {
+                if (distance !null) {
                     if (newIdx === 1) {
                         el.setAttribute('info', { event: 'updateInfo', message: shorthand });
                         el.emit('updateInfo');
