@@ -11,7 +11,7 @@ window.onload = () => {
     renderPlaces(places);
     console.log('Hello');
 
-    if(navigator.geolocation) {
+//     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
                 startLng = position.coords.longitude;
@@ -26,9 +26,9 @@ window.onload = () => {
                 alert(`An error occurred: ${err.code}`);
             },
         ); 
-    } else {
-        alert("Sorry, geolocation not supported in this browser");
-    }
+//     } else {
+//         alert("Sorry, geolocation not supported in this browser");
+//     }
 
     currentLat = startLat;
     currentLng = startLng;
@@ -40,7 +40,7 @@ window.onload = () => {
 
 function getPosition() {
     
-    if(navigator.geolocation) {
+//     if(navigator.geolocation) {
         startLat = currentLat;
         startLng = currentLng;
         navigator.geolocation.getCurrentPosition(
@@ -57,9 +57,9 @@ function getPosition() {
                 console.error('Error in retreiving position', err);
             },
         ); 
-    } else {
-        alert("Sorry, geolocation not supported in this browser");
-    }
+//     } else {
+//         alert("Sorry, geolocation not supported in this browser");
+//     }
 
     return [
         {
