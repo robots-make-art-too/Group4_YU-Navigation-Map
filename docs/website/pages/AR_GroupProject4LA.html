@@ -56,14 +56,13 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 	<div class="centered instructions"></div>
-	<a-scene vr-mode-ui="enabled: false"
-		arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
-		renderer="antialias: true; alpha: true" id="scene">
+	<a-scene id="scene"
+		 vr-mode-ui="enabled: false"
+		 arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;"
+		 renderer="antialias: true; alpha: true" 
+		 stats>
 		
-
-		<a-sky src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-on-enter-ar>
-		</a-sky>
-
+		<a-sky src="https://thisweek.students.yorku.ca/sites/default/files/images/campus-aerial.webp" hide-on-enter-ar/>
 
 		<a-assets>
 			<a-asset-item id="LassondeBuilding"
@@ -72,8 +71,13 @@
 
 		</a-assets>
 		
-		<a-gltf-model src="#LassondeBuilding" rotaton="0.5 0.5 0.5" maxDistance="15" scale="0.25 0.25 0.25" gps-entity-place="latitude: 43.773598; longitude: -79.505281;"></a-gltf-model>
-		
+		<a-entity id="LB-model"
+			  gltf-model src="#LassondeBuilding" 
+			  scale="0.25 0.25 0.25" rotaton="0.5 0.5 0.5"
+			  maxDistance="15"
+			  gps-entity-place="latitude: 43.773598; longitude: -79.505281;"/>
+		</a-entity>
+	
 		<!--
 		<a-entity position="-300 200 400" scale="1 1 1">
 			<a-camera gps-camera="simulateLatitude: 43.773598; simulateLongitude: -79.505281;" rotation-reader></a-camera>	
