@@ -1,19 +1,19 @@
+let startLat = 0.00;
+let startLng = 0.00;
+let currentLat = startLat;
+let currentLng = startLng;
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
     let coordsGPS = getPosition();
-    let startLat = coordsGPS.lat;
-    let startLng = coordsGPS.long;
+    startLat = coordsGPS.lat;
+    startLng = coordsGPS.long;
     
     let places = loadPlaces();
     renderPlaces(places);
     console.log(`Hello! GPS: ${coordsGPS}`);
 
-//     let startLat = 0.00;
-//     let startLng = 0.00;
-//     let currentLat = startLat;
-//     let currentLng = startLng;
 //     currentLat = startLat;
 //     currentLng = startLng;
 
@@ -27,8 +27,8 @@ function getPosition() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
-                let currentLng = position.coords.longitude;
-                let currentLat = position.coords.latitude;
+                currentLng = position.coords.longitude;
+                currentLat = position.coords.latitude;
             },
             err=> {
                 console.error('Error in retreiving position', err);
