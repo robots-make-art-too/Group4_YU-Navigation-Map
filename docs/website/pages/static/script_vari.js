@@ -96,6 +96,7 @@ function renderPlaces(places) {
         model.setAttribute('scale', '0.05 0.05 0.05');
         model.setAttribute('name', place.name);
         model.setAttribute('info', '')
+        model.setAttribute('position', '0 0 -5');
 
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))//, { detail: { component: this.el }}))
