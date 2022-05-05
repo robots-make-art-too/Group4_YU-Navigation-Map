@@ -9,9 +9,10 @@ window.onload = () => {
     
     getStartingPosition();
     let coordsGPS = updatePosition(); 
+    /*
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
-    
+    */
     console.log(coordsGPS);
     console.log(startLat);
     console.log(startLng);
