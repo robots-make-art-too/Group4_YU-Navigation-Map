@@ -72,8 +72,8 @@ model-viewer {
 button {
 	background-image: url(https://www.hackingwithswift.com/uploads/arkit.jpg);
 	background-size: 100%;
-	width: 150px;
-	height: 100px;
+	width: 160px;
+	height: 110px;
 	margin-bottom: 0px;
 	margin-top: 5px
 }
