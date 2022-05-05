@@ -87,7 +87,7 @@ function loadPlaces() {
                 lng: -78.994199,
 
             },
-            url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Jason_Lu/docs/website/assets/models/LassondeBuilding.gltf',
+            url: 'https://robots-make-art-too.github.io/Group4_YU-Navigation-Map/website/assets/models/LassondeBuilding.gltf',
             info: {
                 short: 'Name: Lassonde Building LSA (formerly Computer Science & Engineering Building)',
                 loc: 'Location: 120 Campus Walk',
