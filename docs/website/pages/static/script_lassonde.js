@@ -73,6 +73,8 @@ function getStartingPosition() {
     }
 }   
 
+//                 lat: 43.773598,
+//                 lng: -79.505281,
 
 function loadPlaces() {
     return [ 
@@ -80,8 +82,10 @@ function loadPlaces() {
             name: 'Lassonde Building',
             id: 'lassonde-building',
             location: { 
-                lat: 43.773598,
-                lng: -79.505281,
+                
+                lat: 43.835853,
+                lng: -78.994199,
+
             },
             url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Jason_Lu/docs/website/assets/models/LassondeBuilding.gltf',
             info: {
