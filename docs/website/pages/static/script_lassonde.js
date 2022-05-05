@@ -17,8 +17,8 @@ window.onload = () => {
     console.log(startLat);
     console.log(startLng);
     */
-    let places = loadPlaces();
-    renderPlaces(places);
+//    let places = loadPlaces();
+//    renderPlaces(places);
     console.log('Hello');
     
 //     currentLat = startLat;
@@ -43,6 +43,13 @@ function updatePosition() {
         ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
+    }
+
+    var el = document.querySelector('[gps-entity-place]');
+    const distance = el.getAttribute('distance');
+    if (distance < 10) {
+        let places = loadPlaces();
+        renderPlaces(places);
     }
 
     return [
@@ -114,6 +121,7 @@ function renderPlaces(places) {
         model.setAttribute('position', '0 0 -20');
 
         let check = updatePosition();
+
 //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
         if(startLat != null && startLng != null) {    
            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
