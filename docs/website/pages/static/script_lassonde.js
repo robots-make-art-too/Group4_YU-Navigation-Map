@@ -7,7 +7,7 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
-    let coordsGPS = getPosition();
+    let coordsGPS = getCurrentPosition();
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
     
