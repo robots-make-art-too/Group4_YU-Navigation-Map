@@ -1,72 +1,83 @@
-let startLat;
-let startLng;
-let currentLat = startLat;
-let currentLng = startLng;
+let startLat, startLng, currentLat, currentLng;
+let places;
+const LAT_LONG_SECOND = 1/60/60;
+const FEET_PER_LAT_SECOND = 101;
+const FEET_PER_LONG_SECOND = 80;
+const DISTANCE_IN_FEET = 100; // distance for object to appear
 
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
-    let coordsGPS = watchPositon();
-    startLat = coordsGPS.lat;
-    startLng = coordsGPS.long;
+    getStartingPosition();
+    updatePosition(); 
     
-    console.log(coordsGPS);
-    console.log(startLat);
-    console.log(startLng);
-    
-    let places = loadPlaces();
-    renderPlaces(places);
+    places = loadPlaces();
     console.log('Hello');
-
-//     if(navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(
-//             position=> {
-//                 startLng = position.coords.longitude;
-//                 startLat = position.coords.latitude;
-//                 console.log(`Lat ${startLat} Lon ${startLng}`);
-//             },
-//             err=> {
-//                 alert(`An error occurred: ${err.code}`);
-//             },
-//         ); 
-//     } else {
-//         alert("Sorry, geolocation not supported in this browser");
-//     }
-
-//     startLat = 43.773071;
-//     startLng = -79.503404;
-
 };
 
-function watchPositon() {
+function updatePosition() {
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
+        navigator.geolocation.watchPosition(
             position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
-                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+                console.log(`Current Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+
+                places.forEach(place => {
+                    let latFromPlace = Math.abs(currentLat - place.location.lat);
+                    let longFromPlace = Math.abs(currentLng - place.location.lng);
+
+                    let latSeconds = latFromPlace / LAT_LONG_SECOND;
+                    let longSeconds = longFromPlace / LAT_LONG_SECOND;
+                    let latFeet = latSeconds * FEET_PER_LAT_SECOND;
+                    let longFeet = longSeconds * FEET_PER_LONG_SECOND;
+
+                    if (latFeet <= DISTANCE_IN_FEET && longFeet <= DISTANCE_IN_FEET) {
+                        console.log("In range!");
+                        renderPlace(place);
+                    } else {
+                        console.log("Not in range");
+                    }
+                });
             },
             err=> {
                 console.error('Error in retreiving position', err);
+            },
+            {
+                enableHighAccuracy: true
             },
         ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
-
-    return [
-        {
-            lat: currentLat,
-            long: currentLng,
-        },
-    ]
 };
+
+function getStartingPosition() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                startLat = position.coords.latitude;
+                startLng = position.coords.longitude;
+                console.log(`Starting: Lat ${startLat} Lon ${startLng}`);
+            },
+            err => {
+                console.error('Error in retreiving position', err);
+            },
+            {
+                enableHighAccuracy: true
+            },
+        ); 
+    } else {
+        alert("Sorry, geolocation not supported in this browser");
+    }
+}   
 
 function loadPlaces() {
     return [ 
         {
             name: 'Vari Hall',
+            id: 'vari-hall',
             location: {
                lat: 43.773071,
                lng: -79.503404,
@@ -83,73 +94,43 @@ function loadPlaces() {
 };
 
 var infoIdx = 0;
-function renderPlaces(places) {
+function renderPlace(place) {
     let scene = document.querySelector('a-scene');
     let div = document.querySelector('.instructions');
+
+    let shorthand = place.info.short;
+    let location = place.info.loc;
+    let hours = place.info.hour;
     
-    places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
-        let shorthand = place.info.short;
-        let location = place.info.loc;
-        let hours = place.info.hour;
-        let blank = place.info.blank;
-        
-        let model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('gltf-model', place.url);
-        model.setAttribute('rotation', '0 180 0');
-        model.setAttribute('animation-mixer', '');
-        model.setAttribute('scale', '0.05 0.05 0.05');
-        model.setAttribute('name', place.name);
-        model.setAttribute('info', '')
-        model.setAttribute('position', '0 0 -5');
+    let model = document.createElement('a-entity');
+    model.id = place.id;
+    model.setAttribute('gltf-model', place.url);
+    model.setAttribute('rotation', '0 90 0');
+    model.setAttribute('animation-mixer', '');
+    model.setAttribute('scale', '0.05 0.05 0.05');
+    model.setAttribute('name', place.name);
+    model.setAttribute('info', '');
+    model.setAttribute('position', '0 0 -20');
 
-        let check = watchPositon();
-        if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
-//         if(check.lat){
-            console.log(`checks out!: we are on the way`);
-            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
-            
-            document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-                var el = document.querySelector('[gps-entity-place]');
-                var newIdx = infoIdx % 3;
+    document.querySelector('button[data-action="change"]').addEventListener('click', function () {
+        var el = document.getElementById(model.id);
+        var newIdx = infoIdx % 3;
 
-                const distance = document.querySelector('[gps-entity-place]').getAttribute('distance');
-                console.log(distance);
-                const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-                console.log(distanceMsg);
-
-                if (distance < 2) {
-                    if (newIdx === 1) {
-                        el.setAttribute('info', { event: 'updateInfo', message: shorthand });
-                        el.emit('updateInfo');
-                        div.innerText = shorthand;
-                    } else if (newIdx === 2) {
-                        el.setAttribute('info', { event: 'updateInfo', message: location });
-                        el.emit('updateInfo');
-                        div.innerText = location;
-                    } else {
-                        el.setAttribute('info', { event: 'updateInfo', message: hours });
-                        el.emit('updateInfo');
-                        div.innerText = hours;
-                    }
-
-                    infoIdx++;
-                }
-                else {
-                    el.setAttribute('info', { event: 'updateInfo', message: blank });
-                    el.emit('updateInfo');
-                    div.innerText = blank;
-                }
-            });
+        if (newIdx === 1) {
+            el.setAttribute('info', { event: 'updateInfo', message: shorthand });
+            el.emit('updateInfo');
+            div.innerText = shorthand;
+        } else if (newIdx === 2) {
+            el.setAttribute('info', { event: 'updateInfo', message: location });
+            el.emit('updateInfo');
+            div.innerText = location;
         } else {
-            div.innerText = ' ';
-        }        
-        
-        model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        });
-        scene.appendChild(model);
+            el.setAttribute('info', { event: 'updateInfo', message: hours });
+            el.emit('updateInfo');
+            div.innerText = hours;
+        }
+        infoIdx++;
     });
+
+    scene.appendChild(model);
 }
