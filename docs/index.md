@@ -24,7 +24,7 @@
         Brief description of our project
     </h3>
     <p>
-        The goal of our project is to create an easy to use tool for new students and people unfamiliar with the campus. Using geolocation, we will have unique 3D of models of buildings appear in AR along bits of helpful information such as the building name and its operational hours. Cycling though the diffent kinds of information is easy, just tap the screen. To access our project, just click the buttom at the bottom of the page. Also, if you find this application useful, share it with others using our custom QR code above!
+        The goal of our project is to create an easy to use tool for new students and people unfamiliar with the campus. Using geolocation, we will have unique 3D of models of buildings appear in AR along bits of helpful information such as the building name and its operational hours or intresting facts about the building's long history. Cycling though the diffent kinds of information is easy, just tap the question mark button. To access our project, just click one of the buttom at the bottom of the page, leading you to that's specific building's AR page. Also, if you find this application useful, share it with others using our custom QR code above!
     </p>
     <!-- <p>The AR link in the website can guide students to get the route and building through GPS.</p> -->
     <body>
@@ -34,10 +34,10 @@
             Click the button to open the AR web application
         </h4>
         <button id="ar-LA" onclick="openTab('website/pages/AR_GroupProject4LA.html')" type="button">
-            <!-- Start AR -->Lassonde
+            <!-- Start AR --><br><br><br><br>Lassonde
         </button>
         <button id="ar-VH" onclick="openTab('website/pages/AR_GroupProject4VH.html')" type="button">
-            <!-- Start AR -->Vari Hall
+            <!-- Start AR --><br><br><br><br>Vari Hall
         </button>
         <hr>
         <h5>
