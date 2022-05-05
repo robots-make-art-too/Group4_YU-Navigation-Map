@@ -7,7 +7,8 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
-    let coordsGPS = getCurrentPosition(); 
+    getStartingPosition();
+    let coordsGPS = updatePosition(); 
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
     
@@ -27,7 +28,7 @@ window.onload = () => {
 
 };
 
-function watchPositon() {
+function updatePosition() {
     if(navigator.geolocation) {
         navigator.geolocation.watchPosition(
             position=> {
@@ -50,6 +51,24 @@ function watchPositon() {
         },
     ]
 };
+
+function getStartingPosition() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                startLat = position.coords.latitude;
+                startLng = position.coords.longitude;
+                console.log(`Starting: Lat ${startLat} Lon ${startLng}`);
+            },
+            err => {
+                console.error('Error in retreiving position', err);
+            },
+        ); 
+    } else {
+        alert("Sorry, geolocation not supported in this browser");
+    }
+}   
+
 
 function loadPlaces() {
     return [ 
@@ -93,7 +112,7 @@ function renderPlaces(places) {
         model.setAttribute('info', '');
         model.setAttribute('position', '0 0 -20');
 
-        let check = watchPositon();
+        let check = updatePosition();
 //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
         if(check) {    
            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
