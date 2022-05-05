@@ -115,7 +115,7 @@ function renderPlaces(places) {
 
         let check = updatePosition();
 //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
-        if(check) {    
+        if(startLat != null && startLng != null) {    
            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
             
             document.querySelector('button[data-action="change"]').addEventListener('click', function () {
