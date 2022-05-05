@@ -1,6 +1,9 @@
 let startLat;
 let startLng;
 let places
+const LAT_LONG_SECOND = 1/60/60;
+const FEET_PER_LAT_SECOND = 100;
+const FEET_PER_LONG_SECOND = 75;
 let currentLat = startLat;
 let currentLng = startLng;
 
@@ -31,51 +34,41 @@ window.onload = () => {
 };
 
 function updatePosition() {
-    const LAT_LONG_SECOND = 1 / 60 / 60;
-    const FEET_PER_LAT_SECOND = 100;
-    const FEET_PER_LONG_SECOND = 75;
-
-    if (navigator.geolocation) {
+    
+    if(navigator.geolocation) {
         navigator.geolocation.watchPosition(
-            position => {
+            position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
-                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
-
+                console.log(`Current Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
+ 
                 places.forEach(place => {
                     let latFromPlace = Math.abs(currentLat - place.location.lat);
                     let longFromPlace = Math.abs(currentLng - place.location.lng);
-
+ 
                     let latSeconds = latFromPlace / LAT_LONG_SECOND;
                     let longSeconds = longFromPlace / LAT_LONG_SECOND;
                     let latFeet = latSeconds * FEET_PER_LAT_SECOND;
                     let longFeet = longSeconds * FEET_PER_LONG_SECOND;
-
+ 
                     if (latFeet <= 15 && longFeet <= 15) {
-                        console.log('in range');
-                        renderPlaces(places)
+                        console.log("In range!");
+                        renderPlace(place);
                     } else {
-                        console.log('not in range');
+                        console.log("Not in range");
                     }
                 });
             },
-            err => {
+            err=> {
                 console.error('Error in retreiving position', err);
             },
             {
                 enableHighAccuracy: true
             },
-        );
+        ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
-
-    return [
-        {
-            lat: currentLat,
-            long: currentLng,
-        },
-    ]
 };
 
 function getStartingPosition() {
