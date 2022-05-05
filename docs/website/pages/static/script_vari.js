@@ -82,7 +82,7 @@ function loadPlaces() {
                lat: 43.773071,
                lng: -79.503404,
             },
-            url: 'https://raw.githack.com/robots-make-art-too/Group4_YU-Navigation-Map/dev_Jason_Lu/docs/website/assets/models/VariHall.gltf',
+            url: 'https://robots-make-art-too.github.io/Group4_YU-Navigation-Map/website/assets/models/VariHall.gltf',
             info: {
                 short: 'Name: Vari Hall adorned with yellow brick and two lower rectangular structures extending from its sides \n Vari Hall is a well-designed and extraordinary space.',
                 loc: 'The building was constructed in 1992 and named after one of York Universitys benefactors \n George Vari (1923-2010)',
