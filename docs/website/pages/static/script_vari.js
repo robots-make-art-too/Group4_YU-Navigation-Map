@@ -7,7 +7,7 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
     
-    let coordsGPS = getPosition();
+    let coordsGPS = watchPositon();
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
     
@@ -39,7 +39,7 @@ window.onload = () => {
 
 };
 
-function getPosition() {
+function watchPositon() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position=> {
@@ -105,7 +105,7 @@ function renderPlaces(places) {
         model.setAttribute('info', '')
         model.setAttribute('position', '0 0 -5');
 
-        let check = getPosition();
+        let check = watchPositon();
         if (check) { // == 'lat: 43.773071, lng: -79.503404,') {
 //         if(check.lat){
             console.log(`checks out!: we are on the way`);
