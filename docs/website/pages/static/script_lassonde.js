@@ -3,7 +3,7 @@ let places;
 const LAT_LONG_SECOND = 1/60/60;
 const FEET_PER_LAT_SECOND = 100;
 const FEET_PER_LONG_SECOND = 75;
-const DISTANCE_IN_FEET = 30; // distance for object to appear
+const DISTANCE_IN_FEET = 100; // distance for object to appear
 
 window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
