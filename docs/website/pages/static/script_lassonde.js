@@ -4,37 +4,21 @@ let places
 const LAT_LONG_SECOND = 1/60/60;
 const FEET_PER_LAT_SECOND = 100;
 const FEET_PER_LONG_SECOND = 75;
-let currentLat = startLat;
-let currentLng = startLng;
+let currentLat;
+let currentLng;
 
-window.onload = () => {
+window.onload = () => { 
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = '?';
-
+    
     getStartingPosition();
-    let coordsGPS = updatePosition();
-    /*
-    startLat = coordsGPS.lat;
-    startLng = coordsGPS.long;
+    updatePosition(); 
     
-    console.log(coordsGPS);
-    console.log(startLat);
-    console.log(startLng);
-    */
     places = loadPlaces();
-    //    renderPlaces(places);
     console.log('Hello');
-
-    //     currentLat = startLat;
-    //     currentLng = startLng;
-
-    //     startLat = 43.773598;
-    //     startLng = -79.505281;
-
 };
-
+ 
 function updatePosition() {
-    
     if(navigator.geolocation) {
         navigator.geolocation.watchPosition(
             position=> {
@@ -52,10 +36,10 @@ function updatePosition() {
                     let longFeet = longSeconds * FEET_PER_LONG_SECOND;
  
                     if (latFeet <= 15 && longFeet <= 15) {
-                        console.log("In range!");
+                        console.log("in range");
                         renderPlace(place);
                     } else {
-                        console.log("Not in range");
+                        console.log("not in range");
                     }
                 });
             },
@@ -70,7 +54,7 @@ function updatePosition() {
         alert("Sorry, geolocation not supported in this browser");
     }
 };
-
+ 
 function getStartingPosition() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -82,19 +66,22 @@ function getStartingPosition() {
             err => {
                 console.error('Error in retreiving position', err);
             },
-        );
+            {
+                enableHighAccuracy: true
+            },
+        ); 
     } else {
         alert("Sorry, geolocation not supported in this browser");
     }
-}
-
-
+}   
+ 
+ 
 function loadPlaces() {
-    return [
+    return [ 
         {
             name: 'Lassonde Building',
             id: 'lassonde-building',
-            location: {
+            location: { 
                 lat: 43.773598,
                 lng: -79.505281,
             },
@@ -107,20 +94,18 @@ function loadPlaces() {
         },
     ]
 };
-
+ 
 var infoIdx = 0;
-function renderPlaces(places) {
+function renderPlace(place) {
     let scene = document.querySelector('a-scene');
     let div = document.querySelector('.instructions');
-
-    let latitude = place.location.lat;
-    let longitude = place.location.lng;
+ 
     let shorthand = place.info.short;
     let location = place.info.loc;
     let hours = place.info.hour;
-
+    
     let model = document.createElement('a-entity');
-    model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+    model.id = place.id;
     model.setAttribute('gltf-model', place.url);
     model.setAttribute('rotation', '0 90 0');
     model.setAttribute('animation-mixer', '');
@@ -128,19 +113,11 @@ function renderPlaces(places) {
     model.setAttribute('name', place.name);
     model.setAttribute('info', '');
     model.setAttribute('position', '0 0 -20');
-
-    //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
-    console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
-
+ 
     document.querySelector('button[data-action="change"]').addEventListener('click', function () {
-        var el = document.querySelector('[gps-entity-place]');
+        var el = document.getElementById(model.id);
         var newIdx = infoIdx % 3;
-
-        const distance = el.getAttribute('distance');
-        console.log(distance);
-        const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
-        console.log(distanceMsg);
-
+ 
         if (newIdx === 1) {
             el.setAttribute('info', { event: 'updateInfo', message: shorthand });
             el.emit('updateInfo');
@@ -154,12 +131,8 @@ function renderPlaces(places) {
             el.emit('updateInfo');
             div.innerText = hours;
         }
-
         infoIdx++;
     });
-
-    model.addEventListener('loaded', () => {
-        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el } }))
-    });
+ 
     scene.appendChild(model);
 }
