@@ -35,7 +35,7 @@ function updatePosition() {
             position=> {
                 currentLng = position.coords.longitude;
                 currentLat = position.coords.latitude;
-                console.log(`Lat ${position.coords.longitude} Lon ${position.coords.longitude}`);
+                console.log(`Lat ${position.coords.latitude} Lon ${position.coords.longitude}`);
             },
             err=> {
                 console.error('Error in retreiving position', err);
