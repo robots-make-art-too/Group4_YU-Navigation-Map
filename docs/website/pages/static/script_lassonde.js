@@ -12,11 +12,11 @@ window.onload = () => {
     /*
     startLat = coordsGPS.lat;
     startLng = coordsGPS.long;
-    */
+    
     console.log(coordsGPS);
     console.log(startLat);
     console.log(startLng);
-    
+    */
     let places = loadPlaces();
     renderPlaces(places);
     console.log('Hello');
