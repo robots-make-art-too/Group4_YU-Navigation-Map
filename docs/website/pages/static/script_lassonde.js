@@ -1,8 +1,8 @@
 let startLat, startLng, currentLat, currentLng;
 let places;
 const LAT_LONG_SECOND = 1/60/60;
-const FEET_PER_LAT_SECOND = 105;
-const FEET_PER_LONG_SECOND = 75;
+const FEET_PER_LAT_SECOND = 101;
+const FEET_PER_LONG_SECOND = 73;
 const DISTANCE_IN_FEET = 1000000; // distance for object to appear (100 we want; 1000000 is for testing from afar)
 
 window.onload = () => { 
