@@ -27,7 +27,7 @@ window.onload = () => {
 
 };
 
-function getPosition() {
+function watchPositon() {
     if(navigator.geolocation) {
         navigator.geolocation.watchPosition(
             position=> {
@@ -93,7 +93,7 @@ function renderPlaces(places) {
         model.setAttribute('info', '');
         model.setAttribute('position', '0 0 -20');
 
-        let check = getPosition();
+        let check = watchPositon();
 //         if (getPosition() != 'lat: 43.773598, lng: -79.505281,') {
         if(check) {    
            console.log(`GPS CHECK -- current: Lat ${currentLat} Lon ${currentLng} ::: start: Lat ${startLat} Lon ${startLng} ::: check: ${check.lat} ${check.long}`);
